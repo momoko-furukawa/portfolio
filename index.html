@@ -30,7 +30,6 @@
     --font-en-display: "Fraunces", "Zen Old Mincho", serif;
     --font-en-body: "Figtree", "Zen Kaku Gothic New", sans-serif;
 
-    /* active fonts — switched by [data-lang] */
     --font-display: var(--font-en-display);
     --font-body: var(--font-en-body);
   }
@@ -90,80 +89,125 @@
   @keyframes rise { to { opacity: 1; transform: none; } }
   .hero .eyebrow { font-family: var(--font-en-body); font-size: .82rem; letter-spacing: .14em; color: #fff; opacity: .9; font-weight: 500; margin-bottom: 30px; }
   .hero h1 { font-family: var(--font-display); font-weight: 600; color: #fff; font-size: clamp(2rem, 5.4vw, 3.5rem); line-height: 1.45; letter-spacing: .02em; text-shadow: 0 2px 20px rgba(80,50,90,.18); }
-  :root[data-lang="en"] .hero h1 { line-height: 1.12; letter-spacing: -.01em; }
-  .hero .sub { font-family: var(--font-en-display); font-style: italic; font-weight: 400; color: #fff; font-size: clamp(1.05rem, 2.4vw, 1.5rem); margin-top: 26px; opacity: .96; }
-  .hero .lede { color: #fff; opacity: .92; font-size: 1rem; margin-top: 30px; max-width: 32em; margin-left: auto; margin-right: auto; }
+  :root[data-lang="en"] .hero h1 { line-height: 1.15; letter-spacing: -.01em; }
+  .hero .lede { color: #fff; opacity: .94; font-size: 1.05rem; margin-top: 30px; max-width: 36em; margin-left: auto; margin-right: auto; line-height: 1.8; }
   .scroll-cue { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 1; color: #fff; opacity: .8; font-family: var(--font-en-body); font-size: .78rem; letter-spacing: .1em; }
 
-  /* ---------- Sections ---------- */
+  /* ---------- Sections Shared ---------- */
   section { padding: 96px 0; }
-  .section-head { max-width: 660px; margin-bottom: 52px; }
-  .section-head .kicker { font-family: var(--font-en-display); font-style: italic; color: var(--lavender-deep); font-size: 1.05rem; margin-bottom: 10px; }
+  .section-head { max-width: 720px; margin-bottom: 48px; }
+  .section-head .kicker { font-family: var(--font-en-display); font-style: italic; color: var(--lavender-deep); font-size: 1.1rem; margin-bottom: 12px; }
   .section-head h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.5rem, 3.6vw, 2.2rem); line-height: 1.5; letter-spacing: .02em; }
-  :root[data-lang="en"] .section-head h2 { line-height: 1.16; letter-spacing: -.01em; }
-  .section-head p { color: var(--ink-soft); margin-top: 18px; font-size: 1.02rem; }
+  :root[data-lang="en"] .section-head h2 { line-height: 1.2; letter-spacing: -.01em; }
+  .section-head p { color: var(--ink-soft); margin-top: 18px; font-size: 1.02rem; line-height: 1.8; }
 
-  /* ---------- Pillars ---------- */
+  /* ---------- Belief ---------- */
+  #belief { padding: 80px 0 40px; }
+  .belief-card {
+    background: linear-gradient(145deg, var(--paper-2), color-mix(in srgb, var(--cloud) 50%, var(--paper)));
+    border-radius: 26px;
+    padding: 60px 48px;
+    max-width: 860px;
+    margin: 0 auto;
+    border: 1px solid var(--line);
+  }
+  .belief-kicker {
+    font-family: var(--font-en-display);
+    font-style: italic;
+    color: var(--lavender-deep);
+    font-size: 1.15rem;
+    margin-bottom: 16px;
+  }
+  .belief-card h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.45rem, 3.2vw, 2rem);
+    line-height: 1.45;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+  :root[data-lang="en"] .belief-card h2 { line-height: 1.25; letter-spacing: -.01em; }
+  .belief-body { display: flex; flex-direction: column; gap: 14px; }
+  .belief-body p { color: var(--ink-soft); font-size: 1.02rem; line-height: 1.85; }
+
+  /* ---------- Approach Pillars ---------- */
   .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
-  .pillar { padding: 40px 34px; border-radius: 22px; position: relative; overflow: hidden; }
+  .pillar { padding: 40px 34px; border-radius: 22px; position: relative; overflow: hidden; display: flex; flex-direction: column; }
   .pillar.internal { background: linear-gradient(160deg, var(--cloud), color-mix(in srgb, var(--lavender) 16%, var(--paper))); }
   .pillar.external { background: linear-gradient(160deg, color-mix(in srgb, var(--coral) 12%, var(--paper)), color-mix(in srgb, var(--rose) 20%, var(--paper))); }
   .pillar .tag { font-family: var(--font-en-display); font-style: italic; font-size: 1.15rem; margin-bottom: 6px; }
   .pillar.internal .tag { color: var(--lavender-deep); }
   .pillar.external .tag { color: var(--coral-deep); }
-  .pillar h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; margin-bottom: 14px; }
+  .pillar h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; margin-bottom: 14px; line-height: 1.45; }
   :root[data-lang="en"] .pillar h3 { letter-spacing: -.01em; }
-  .pillar p { color: var(--ink-soft); font-size: .98rem; }
-  .pillar .now { margin-top: 22px; padding-top: 18px; border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); font-size: .9rem; color: var(--ink); }
-  .pillar .now b { font-weight: 700; }
+  .pillar p { color: var(--ink-soft); font-size: .98rem; line-height: 1.8; }
 
-  /* ---------- Projects ---------- */
-  .projects { display: flex; flex-direction: column; gap: 2px; }
-  .project { display: grid; grid-template-columns: 170px 1fr auto; gap: 28px; align-items: baseline; padding: 28px 6px; border-top: 1px solid var(--line); transition: background .25s ease; }
-  .project:last-child { border-bottom: 1px solid var(--line); }
-  .project:hover { background: color-mix(in srgb, var(--cloud) 45%, transparent); }
-  .project .p-name { font-family: var(--font-en-display); font-size: 1.35rem; font-weight: 600; letter-spacing: -.01em; }
-  .project .p-desc { color: var(--ink-soft); font-size: .96rem; }
-  .project .p-pillar { font-family: var(--font-en-body); font-size: .74rem; letter-spacing: .08em; white-space: nowrap; padding: 5px 12px; border-radius: 20px; align-self: center; }
-  .p-pillar.i { color: var(--lavender-deep); background: color-mix(in srgb, var(--lavender) 18%, var(--paper)); }
-  .p-pillar.e { color: var(--coral-deep); background: color-mix(in srgb, var(--coral) 18%, var(--paper)); }
-  @media (hover:hover) {
-    .project a.p-name { position: relative; text-decoration: none; color: var(--ink); }
-    .project a.p-name::after { content:""; position:absolute; left:0; bottom:-3px; height:2px; width:0; background: var(--coral); transition: width .3s ease; }
-    .project a.p-name:hover::after { width: 100%; }
+  /* ---------- In the Works (2-Column Cards) ---------- */
+  .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  .work-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform .25s ease, box-shadow .25s ease;
   }
-  a.p-name { color: var(--ink); text-decoration: none; }
+  :root[data-theme="dark"] .work-card { background: var(--paper-2); }
+  .work-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(64,48,63,.06); }
+  .work-badge {
+    align-self: flex-start;
+    font-family: var(--font-en-body);
+    font-size: .75rem;
+    letter-spacing: .06em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .work-badge.i { color: var(--lavender-deep); background: color-mix(in srgb, var(--lavender) 18%, var(--paper)); }
+  .work-badge.e { color: var(--coral-deep); background: color-mix(in srgb, var(--coral) 18%, var(--paper)); }
+  .work-card h3 { font-family: var(--font-en-display); font-size: 1.4rem; font-weight: 600; letter-spacing: -.01em; }
+  .work-card p { color: var(--ink-soft); font-size: .96rem; line-height: 1.8; }
 
-  /* ---------- Story ---------- */
-  .story { background: linear-gradient(150deg, var(--paper-2), var(--paper)); border-radius: 26px; padding: 56px 46px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
-  .story .q { font-family: var(--font-display); font-style: normal; font-weight: 600; font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.5; color: var(--lavender-deep); }
-  :root[data-lang="en"] .story .q { font-family: var(--font-en-display); font-style: italic; font-weight: 400; }
-  .story p { color: var(--ink-soft); margin-top: 20px; }
-  .story .side p { color: var(--ink); font-size: .98rem; }
-  .story .side .label { font-family: var(--font-display); font-weight: 600; color: var(--ink); margin-bottom: 8px; font-size: 1.05rem; }
-
-  /* ---------- Artisans ---------- */
-  .artisans { text-align: center; background: radial-gradient(100% 120% at 50% 0%, color-mix(in srgb, var(--rose) 26%, var(--paper)), var(--paper) 70%); border-radius: 26px; padding: 64px 40px; }
-  .artisans h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.5rem, 3.4vw, 2.1rem); line-height: 1.5; }
-  :root[data-lang="en"] .artisans h2 { line-height: 1.2; letter-spacing: -.01em; }
-  .artisans p { color: var(--ink-soft); max-width: 42em; margin: 20px auto 0; }
-  .artisans .note { display: inline-block; margin-top: 26px; font-family: var(--font-body); font-size: .92rem; color: var(--coral-deep); background: color-mix(in srgb, var(--coral) 14%, var(--paper)); padding: 10px 20px; border-radius: 30px; }
+  /* ---------- About Section ---------- */
+  .about-wrap {
+    background: linear-gradient(150deg, var(--paper-2), var(--paper));
+    border-radius: 26px;
+    padding: 56px 48px;
+    border: 1px solid var(--line);
+  }
+  .about-head { margin-bottom: 24px; }
+  .about-name { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.5rem, 3.4vw, 2.2rem); }
+  .about-title { font-family: var(--font-en-display); font-style: italic; color: var(--lavender-deep); font-size: 1.15rem; margin-top: 4px; }
+  .about-body { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+  .about-body p { color: var(--ink); font-size: 1.02rem; line-height: 1.9; }
+  .about-contact { padding-top: 24px; border-top: 1px solid var(--line); }
+  .about-contact .label { font-family: var(--font-en-display); font-style: italic; font-weight: 600; margin-bottom: 12px; }
+  .contact-links { display: flex; gap: 16px; flex-wrap: wrap; }
+  .contact-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--font-en-body);
+    font-weight: 500;
+    font-size: .95rem;
+    padding: 6px 16px;
+    background: color-mix(in srgb, var(--lavender) 14%, var(--paper));
+    border-radius: 20px;
+    transition: background .2s ease;
+  }
+  .contact-links a:hover { background: color-mix(in srgb, var(--lavender) 26%, var(--paper)); }
 
   /* ---------- Footer ---------- */
   footer { text-align: center; padding: 90px 28px 70px; background: radial-gradient(120% 120% at 50% 100%, var(--hero-a), var(--hero-b) 60%, var(--hero-c)); color: #fff; margin-top: 40px; }
   footer .f-lede { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.4rem, 3.4vw, 2rem); line-height: 1.5; text-shadow: 0 2px 18px rgba(80,50,90,.16); }
   :root[data-lang="en"] footer .f-lede { line-height: 1.2; letter-spacing: -.01em; }
-  footer .links { margin-top: 30px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  footer .links a { color: var(--ink); background: rgba(255,255,255,.92); text-decoration: none; font-family: var(--font-en-body); font-weight: 500; font-size: .92rem; padding: 11px 24px; border-radius: 30px; transition: transform .2s ease, background .2s ease; }
-  footer .links a:hover { transform: translateY(-2px); background: #fff; }
-  footer .sig { margin-top: 40px; font-family: var(--font-en-display); font-style: italic; opacity: .9; }
+  footer .sig { margin-top: 30px; font-family: var(--font-en-display); font-style: italic; opacity: .9; }
 
-  @media (max-width: 720px) {
-    .pillars { grid-template-columns: 1fr; }
-    .project { grid-template-columns: 1fr auto; gap: 6px 16px; }
-    .project .p-desc { grid-column: 1 / -1; }
-    .story { grid-template-columns: 1fr; padding: 40px 28px; }
-    section { padding: 70px 0; }
+  @media (max-width: 768px) {
+    .pillars, .works-grid { grid-template-columns: 1fr; }
+    .belief-card, .about-wrap { padding: 36px 24px; border-radius: 20px; }
+    section { padding: 64px 0; }
   }
   @media (prefers-reduced-motion: reduce) {
     .hero-inner { animation: none; opacity: 1; transform: none; }
@@ -178,162 +222,158 @@
     <button class="lang-btn" data-lang="ja" onclick="setLang('ja')">JP</button>
   </div>
 
+  <!-- Hero -->
   <header class="hero">
     <div class="hero-inner">
       <h1 data-i18n="hero.h1" data-html>Creating a world where<br>everyone can live with ease.</h1>
-      <p class="lede" data-i18n="hero.lede">Based in the US, rooted in Japan. Bridging cultures and markets across Asia and the world to cultivate a society that is gentler on both people and the planet.</p>
+      <p class="lede" data-i18n="hero.lede">Based between the US and Japan, bridging business, culture, and human potential to cultivate a society where everyone can thrive.</p>
     </div>
     <div class="scroll-cue">scroll ↓</div>
   </header>
 
   <main>
+    <!-- My Belief -->
+    <section id="belief">
+      <div class="wrap">
+        <div class="belief-card">
+          <div class="belief-kicker">My Belief</div>
+          <h2 data-i18n="belief.title" data-html>A world where everyone can trust their potential and say,<br>“I am enough as I am.”</h2>
+          <div class="belief-body">
+            <p data-i18n="belief.p1">To me, a society where everyone can live with ease is one where each person can believe in their own potential and take a confident step forward.</p>
+            <p data-i18n="belief.p2">We all carry inherent strengths. Yet at times, our environments can obscure them. While we cannot rewrite the circumstances we were born into, I firmly believe we can always reshape how we see ourselves and how we choose to live.</p>
+            <p data-i18n="belief.p3">That is why I want to help build a world where people can truly feel, “I am enough as I am,” trusting their possibilities and carving their own path.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How I Approach -->
     <section id="approach">
       <div class="wrap">
         <div class="section-head">
-          <div class="kicker">Two approaches, one mission</div>
+          <div class="kicker">How I approach</div>
           <h2 data-i18n="approach.h2" data-html>“Ease of living” is built from<br>both within and without.</h2>
-          <p data-i18n="approach.intro">One approach steadies you from within; the other widens what you can see — this world exists too, maybe I can too. Everything I do grows from one of these two.</p>
+          <p data-i18n="approach.intro">An internal dialogue to know, understand, and accept who you are. An external environment to encounter diverse perspectives, broaden horizons, and take on new challenges. Stepping outside a safe harbor, drawing insights from the world, and returning to deepen your self-awareness. Through this continuous cycle, we build an authentic inner core and expand our possibilities.</p>
         </div>
         <div class="pillars">
           <div class="pillar internal">
             <div class="tag">Internal</div>
-            <h3 data-i18n="inner.h3">Inner Self — Becoming at Home with Who You Are</h3>
-            <p data-i18n="inner.p">Understanding the brain, mind, and your core values leads to true self-acceptance. From that quiet confidence comes the courage to challenge yourself and embrace new possibilities.</p>
-            <div class="now" data-i18n="inner.now" data-html><b>Now:</b> a Substack on brain science and self-change. Ahead — coaching, workshops, and tools for reflection.</div>
+            <h3 data-i18n="inner.h3">Knowing and Navigating Who You Are</h3>
+            <p data-i18n="inner.p">Understanding the mechanics of the mind and emotions allows us to look at ourselves with clarity. Discovering what truly moves us, brings us joy, or causes us friction forms the foundation to make choices true to ourselves, rather than living in the perceptions and expectations of others. Cultivating a quiet, grounded conviction: “I am enough as I am.”</p>
           </div>
           <div class="pillar external">
             <div class="tag">External</div>
-            <h3 data-i18n="outer.h3">Environment — Expanding Horizons</h3>
-            <p data-i18n="outer.p">Creating spaces and encounters where people realize, “Another way of living is possible.” Discovery and cultural translation serve as the gateway to new horizons.</p>
-            <div class="now" data-i18n="outer.now" data-html><b>Now:</b> Tansan Times on markets, and writing that carries Japanese craft. Ahead — a traditional-crafts business and community building.</div>
+            <h3 data-i18n="outer.h3">Expanding Horizons &amp; Psychological Safety to Challenge</h3>
+            <p data-i18n="outer.p">Encountering diverse lifestyles and perspectives opens our eyes: “Another way of living is possible; perhaps I can do this too.” Having a supportive space to encourage you, alongside a safe haven to return to, empowers you to move forward. Rather than leaving these moments to chance, I aim to design systems and cultures that bring both expansive horizons and psychological safety to more people.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- In the Works -->
     <section id="work">
       <div class="wrap">
         <div class="section-head">
-          <div class="kicker">What I'm making</div>
-          <h2 data-i18n="work.h2">Projects</h2>
+          <div class="kicker">Current Explorations</div>
+          <h2 data-i18n="work.h2">In the Works</h2>
         </div>
-        <div class="projects">
-          <div class="project">
-            <a class="p-name" href="#">Tansan Times</a>
-            <div class="p-desc" data-i18n="proj1.desc">An investment newsletter uncovering stories of overlooked companies across Japanese and Southeast Asian markets.</div>
-            <span class="p-pillar e">External</span>
+        <div class="works-grid">
+          <div class="work-card">
+            <span class="work-badge i">Internal / In Progress</span>
+            <h3 data-i18n="work.card1.title">Self-Dialogue Project</h3>
+            <p data-i18n="work.card1.desc">Prototyping an introspective tool designed to peel back external perceptions, observe emotional triggers, and foster authentic self-dialogue. Documenting the journey alongside research in neuroscience and psychology.</p>
           </div>
-          <div class="project">
-            <a class="p-name" href="#">Brain &amp; Self</a>
-            <div class="p-desc" data-i18n="proj2.desc">Insights on neuroscience and psychology, focusing on personal and organizational transformation to help you understand and navigate yourself.</div>
-            <span class="p-pillar i">Internal</span>
-          </div>
-          <div class="project">
-            <a class="p-name" href="#" data-i18n="proj3.name">Craft Journal</a>
-            <div class="p-desc" data-i18n="proj3.desc">Translating the stories of Japanese pottery, textile, and lacquer artisans into modern global lifestyles.</div>
-            <span class="p-pillar e">External</span>
-          </div>
-          <div class="project">
-            <a class="p-name" href="#" data-i18n="proj4.name">self-love (coming soon)</a>
-            <div class="p-desc" data-i18n="proj4.desc">Guided journals and products designed to give yourself permission to be authentically you.</div>
-            <span class="p-pillar i">Internal</span>
+          <div class="work-card">
+            <span class="work-badge e">External / Upcoming</span>
+            <h3 data-i18n="work.card2.title">Tansan Times</h3>
+            <p data-i18n="work.card2.desc">A research newsletter uncovering the quiet strengths of Japanese and Asian markets through qualitative corporate narratives and structural analysis.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="story">
+    <!-- About -->
+    <section id="about">
       <div class="wrap">
-        <div class="story">
-          <div class="main">
-            <div class="q" data-i18n="story.q">What do I really want?</div>
-            <p data-i18n="story.p">Behind the work is always a person still traveling, doubting, and changing. On note, I write in a first-person voice — about studying and living abroad, about career and heart as a woman nearing thirty, and about the places that turn into words.</p>
+        <div class="about-wrap">
+          <div class="about-head">
+            <div class="section-head" style="margin-bottom: 16px;">
+              <div class="kicker">Profile</div>
+            </div>
+            <h2 class="about-name">Momoko Furukawa</h2>
+            <div class="about-title">Bicultural Brand &amp; Culture Strategist</div>
           </div>
-          <div class="side">
-            <div class="label" data-i18n="story.sideLabel">What I write on note</div>
-            <p data-i18n="story.sideList" data-html>· Studying and living abroad<br>· Career, partnership, and what's ahead<br>· Landscapes that became words</p>
+          <div class="about-body">
+            <p data-i18n="about.p1">Began my career at IBM Japan as a Technical Sales specialist, focusing on enterprise integration and business process optimization.</p>
+            <p data-i18n="about.p2">Driven by a deep curiosity about human thoughts, emotions, and the cultural dynamics of organizations, I expanded into brand strategy. Working closely with executive leadership as a branding consultant, I led diverse initiatives from corporate culture transformation and behavioral guidelines to spatial and brand development.</p>
+            <p data-i18n="about.p3">To bridge the structural logic of systems with the qualitative nuances of human culture, I completed my MBA at Hult International Business School in Boston. Currently based in New York, preparing to step into a new role as an IT consultant.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="artisans">
-      <div class="wrap">
-        <div class="artisans">
-          <h2 data-i18n="artisans.h2">With the makers</h2>
-          <p data-i18n="artisans.p">Connecting directly to independent artisans. All sales go directly to the makers — my role is simply translating the warmth and depth of handcrafted work into global living.</p>
-          <span class="note" data-i18n="artisans.note">Proceeds go to the makers</span>
+          <div class="about-contact">
+            <div class="label">Connect</div>
+            <div class="contact-links">
+              <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="#" target="_blank" rel="noopener">Substack</a>
+              <a href="mailto:your-email@example.com">Email</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <div class="f-lede" data-i18n="footer.flede" data-html>Sharing the world I love<br>with the people I cherish.</div>
-    <div class="links">
-      <a href="#">note</a>
-      <a href="#">Substack</a>
-      <a href="#">Instagram</a>
-      <a href="#">Contact</a>
-    </div>
-    <div class="sig">Hug more, worry less.</div>
+    <div class="f-lede" data-i18n="footer.flede" data-html>Creating a world where<br>everyone can live with ease.</div>
+    <div class="sig">Based between the US and Japan</div>
   </footer>
 
 <script>
   const I18N = {
     en: {
-      "hero.h1":"Creating a world where<br>everyone can live with ease.",
-      "hero.lede":"Based in the US, rooted in Japan. Bridging cultures and markets across Asia and the world to cultivate a society that is gentler on both people and the planet.",
-      "approach.h2":"“Ease of living” is built from<br>both within and without.",
-      "approach.intro":"One approach steadies you from within; the other widens what you can see — this world exists too, maybe I can too. Everything I do grows from one of these two.",
-      "inner.h3":"Inner Self — Becoming at Home with Who You Are",
-      "inner.p":"Understanding the brain, mind, and your core values leads to true self-acceptance. From that quiet confidence comes the courage to challenge yourself and embrace new possibilities.",
-      "inner.now":"<b>Now:</b> a Substack on brain science and self-change. Ahead — coaching, workshops, and tools for reflection.",
-      "outer.h3":"Environment — Expanding Horizons",
-      "outer.p":"Creating spaces and encounters where people realize, “Another way of living is possible.” Discovery and cultural translation serve as the gateway to new horizons.",
-      "outer.now":"<b>Now:</b> Tansan Times on markets, and writing that carries Japanese craft. Ahead — a traditional-crafts business and community building.",
-      "work.h2":"Projects",
-      "proj1.desc":"An investment newsletter uncovering stories of overlooked companies across Japanese and Southeast Asian markets.",
-      "proj2.desc":"Insights on neuroscience and psychology, focusing on personal and organizational transformation to help you understand and navigate yourself.",
-      "proj3.name":"Craft Journal",
-      "proj3.desc":"Translating the stories of Japanese pottery, textile, and lacquer artisans into modern global lifestyles.",
-      "proj4.name":"self-love (coming soon)",
-      "proj4.desc":"Guided journals and products designed to give yourself permission to be authentically you.",
-      "story.q":"What do I really want?",
-      "story.p":"Behind the work is always a person still traveling, doubting, and changing. On note, I write in a first-person voice — about studying and living abroad, about career and heart as a woman nearing thirty, and about the places that turn into words.",
-      "story.sideLabel":"What I write on note",
-      "story.sideList":"· Studying and living abroad<br>· Career, partnership, and what's ahead<br>· Landscapes that became words",
-      "artisans.h2":"With the makers",
-      "artisans.p":"Connecting directly to independent artisans. All sales go directly to the makers — my role is simply translating the warmth and depth of handcrafted work into global living.",
-      "artisans.note":"Proceeds go to the makers",
-      "footer.flede":"Sharing the world I love<br>with the people I cherish."
+      "hero.h1": "Creating a world where<br>everyone can live with ease.",
+      "hero.lede": "Based between the US and Japan, bridging business, culture, and human potential to cultivate a society where everyone can thrive.",
+      "belief.title": "A world where everyone can trust their potential and say,<br>“I am enough as I am.”",
+      "belief.p1": "To me, a society where everyone can live with ease is one where each person can believe in their own potential and take a confident step forward.",
+      "belief.p2": "We all carry inherent strengths. Yet at times, our environments can obscure them. While we cannot rewrite the circumstances we were born into, I firmly believe we can always reshape how we see ourselves and how we choose to live.",
+      "belief.p3": "That is why I want to help build a world where people can truly feel, “I am enough as I am,” trusting their possibilities and carving their own path.",
+      "approach.h2": "“Ease of living” is built from<br>both within and without.",
+      "approach.intro": "An internal dialogue to know, understand, and accept who you are. An external environment to encounter diverse perspectives, broaden horizons, and take on new challenges. Stepping outside a safe harbor, drawing insights from the world, and returning to deepen your self-awareness. Through this continuous cycle, we build an authentic inner core and expand our possibilities.",
+      "inner.h3": "Knowing and Navigating Who You Are",
+      "inner.p": "Understanding the mechanics of the mind and emotions allows us to look at ourselves with clarity. Discovering what truly moves us, brings us joy, or causes us friction forms the foundation to make choices true to ourselves, rather than living in the perceptions and expectations of others. Cultivating a quiet, grounded conviction: “I am enough as I am.”",
+      "outer.h3": "Expanding Horizons & Psychological Safety to Challenge",
+      "outer.p": "Encountering diverse lifestyles and perspectives opens our eyes: “Another way of living is possible; perhaps I can do this too.” Having a supportive space to encourage you, alongside a safe haven to return to, empowers you to move forward. Rather than leaving these moments to chance, I aim to design systems and cultures that bring both expansive horizons and psychological safety to more people.",
+      "work.h2": "In the Works",
+      "work.card1.title": "Self-Dialogue Project",
+      "work.card1.desc": "Prototyping an introspective tool designed to peel back external perceptions, observe emotional triggers, and foster authentic self-dialogue. Documenting the journey alongside research in neuroscience and psychology.",
+      "work.card2.title": "Tansan Times",
+      "work.card2.desc": "A research newsletter uncovering the quiet strengths of Japanese and Asian markets through qualitative corporate narratives and structural analysis.",
+      "about.p1": "Began my career at IBM Japan as a Technical Sales specialist, focusing on enterprise integration and business process optimization.",
+      "about.p2": "Driven by a deep curiosity about human thoughts, emotions, and the cultural dynamics of organizations, I expanded into brand strategy. Working closely with executive leadership as a branding consultant, I led diverse initiatives from corporate culture transformation and behavioral guidelines to spatial and brand development.",
+      "about.p3": "To bridge the structural logic of systems with the qualitative nuances of human culture, I completed my MBA at Hult International Business School in Boston. Currently based in New York, preparing to step into a new role as an IT consultant.",
+      "footer.flede": "Creating a world where<br>everyone can live with ease."
     },
     ja: {
-      "hero.h1":"誰もが「生きやすい」と<br>想える社会を創りたい",
-      "hero.lede":"アメリカと日本を拠点に、ビジネス・文化・人の可能性をつなぐ架け橋となる活動をしています。",
-      "approach.h2":"「生きやすさ」は、内側と外側の<br>両方から支えられる",
-      "approach.intro":"自分の内面を整えるアプローチと、視野を広げて「こういう世界もある」と気づけるアプローチ。わたしの活動は、すべてこの2本の柱のどちらかから伸びています。",
-      "inner.h3":"内面 — 自分を扱えるようになる",
-      "inner.p":"脳・心・自分の核を理解することで、「自分が自分で大丈夫」と思えるようになる。そこから人は、自分の可能性を信じて挑戦できる。",
-      "inner.now":"<b>今の発信：</b>脳科学・自己変革のSubstack。将来はコーチング・ワークショップ・内省のためのプロダクトへ。",
-      "outer.h3":"環境 — 視野を広げる",
-      "outer.p":"新しいものに触れ、「この世界もある、自分にもできるかも」と気づける環境をつくる。発見と翻訳が、可能性の入口になる。",
-      "outer.now":"<b>今の発信：</b>投資と市場のTansan Times、日本の工芸を伝える発信。将来は伝統工芸品ビジネス・まちづくりへ。",
-      "work.h2":"発信と活動",
-      "proj1.desc":"日本と東南アジア市場を、統計的に見過ごされた企業の物語から読み解く投資ニュースレター。",
-      "proj2.desc":"脳科学と心理から、自分を理解し扱えるようになるための、個人と組織の変容についての発信。",
-      "proj3.name":"工芸 Journal",
-      "proj3.desc":"日本の焼き物・染織・漆の職人の物語を、海外の暮らしに翻訳して届ける発信。",
-      "proj4.name":"self-love（準備中）",
-      "proj4.desc":"「自分らしくいていい」という許可を持ち帰るための、ジャーナルとプロダクト。",
-      "story.q":"「本当は、どうしたい？」",
-      "story.p":"専門的な発信の裏には、いつも旅して、悩んで、変わり続けている一人の人間がいます。note では、留学と海外生活のこと、30に近づく女性のキャリアや心のこと、旅のエッセイを、一人称の「わたし」を主語に綴っています。",
-      "story.sideLabel":"note で書いていること",
-      "story.sideList":"・ 留学と海外での暮らし<br>・ キャリア、パートナーシップ、これからのこと<br>・ 旅先で言葉になった風景",
-      "artisans.h2":"職人とともに",
-      "artisans.p":"ここで紹介する職人・作家の作品は、購入ページへ直接リンクしています。売上はつくり手に届きます。わたしの役目は、その手仕事の良さが海外の暮らしに伝わるように「翻訳」すること。",
-      "artisans.note":"収益はつくり手へ ── proceeds go to the makers",
-      "footer.flede":"好きな世界観を、<br>好きな人たちと分かち合いたい"
+      "hero.h1": "誰もが「生きやすい」と<br>想える社会を創りたい",
+      "hero.lede": "アメリカと日本を拠点に、ビジネス・文化・人の可能性をつなぐ架け橋となる活動をしています。",
+      "belief.title": "「自分は自分で大丈夫」と、<br>誰もが可能性を信じられる社会へ。",
+      "belief.p1": "「誰もが生きやすいと思える社会」とは、ひとりひとりが自身の可能性を信じ、一歩を踏み出せる社会だと考えています。",
+      "belief.p2": "誰しも必ず良いところがある。でも、時に環境によってそれが見えなくなる時もある。生まれ育った環境を変えることはできないけれど、自身の考え方や生き方は変えることができると信じています。",
+      "belief.p3": "だからこそ、ひとりひとりが「自分は自分で大丈夫」と自分の可能性を信じ、突き進んでいける社会を創りたいと考えています。",
+      "approach.h2": "「生きやすさ」は、内側と外側の<br>両輪から育まれる",
+      "approach.intro": "自分自身を知り、理解し、受け入れる「内側の対話」。多様な価値観や世界に触れ、視野を広げ、チャレンジできる「外側の環境」。安心できる枠組みから一歩外へ踏み出し、得られた気づきを糧に、また自分自身を深めていく。これらの循環を行き来し、人は自分らしい軸を育て、可能性を広げていくことができると考えています。",
+      "inner.h3": "内面からのアプローチ：自分を知り、うまく付き合う",
+      "inner.p": "脳や心のメカニズム、感情の動きを客観的に知り、自分自身とうまく向き合えるようになる。自分が何に心を動かされ、何に喜びや怒りを感じるのか。自分のトリガーを理解することは、他人の基準に振り回されず、自分らしく選択していくための土台になります。「自分は自分で大丈夫」という納得感を育てていきます。",
+      "outer.h3": "環境からのアプローチ：視野を広げ、安心して挑戦できる機会に出会う",
+      "outer.p": "多様な生き方や異なる価値観に触れることで、「こういう選択肢もあるんだ」「自分にもできるかもしれない」と新しい世界が見えてくることがあります。そして、背中を押してくれたり、安心して戻ってこられる居場所があることで、人は前を向いて歩き出せます。たまたま出会えた偶然に頼るだけでなく、そうした視野が広がるきっかけや安心できるカルチャーを、仕組みとして社会に届けていきます。",
+      "work.h2": "進行中の探求と実践",
+      "work.card1.title": "Self-Dialogue Project",
+      "work.card1.desc": "思考や感情のトリガーを客観視し、自分とうまく向き合うための内省プロダクトのプロトタイピング。開発プロセスや背景の脳科学リサーチも発信予定。",
+      "work.card2.title": "Tansan Times",
+      "work.card2.desc": "日本やアジアの市場・産業の底力を、定性的な企業ストーリーと構造分析から読み解くリサーチニュースレター。",
+      "about.p1": "日本IBMにてテクニカルセールスとしてキャリアをスタートし、エンタープライズ領域における業務統合やプロセスの最適化に従事。",
+      "about.p2": "その後、システムという仕組みにとどまらず、人そのものの思考や感情、ブランドやカルチャーがもたらす価値に関心を広げ、ブランディングへ領域を拡張。コンサルタントとして、経営層と対話を重ねながら、組織風土改革や行動指針策定、店舗・ブランド開発に携わる。",
+      "about.p3": "システムの構造と、カルチャーや人の思考・感情。この双方を横断する視点を深めるため、Hult International Business School（Boston）にてMBAを修了。現在はニューヨークにてITコンサルタントとして従事予定。",
+      "footer.flede": "誰もが「生きやすい」と<br>想える社会を創りたい"
     }
   };
 
