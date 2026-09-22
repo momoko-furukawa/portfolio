@@ -6,7 +6,7 @@
 <title>Momoko — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Figtree:wght@300;400;500&family=Zen+Old+Mincho:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Figtree:wght@400;500;600&family=Zen+Old+Mincho:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #FAF8F5;
@@ -14,7 +14,11 @@
     --ink: #2F2A2E;
     --ink-soft: #6A6269;
     
-    /* モカ・トープ（アクセント） */
+    /* 指定画像のフレンチ・インディゴブルー */
+    --indigo-blue: #416799;
+    --indigo-light: rgba(65, 103, 153, 0.14);
+    
+    /* モカ・トープ */
     --mocha: #7A5C50;
     --mocha-light: #EFE8E3;
     --line: #E8E2DD;
@@ -43,7 +47,7 @@
     line-height: 1.85; font-weight: 400;
     -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
-  :root[data-lang="en"] body { line-height: 1.7; font-weight: 300; }
+  :root[data-lang="en"] body { line-height: 1.75; font-weight: 400; }
   .wrap { max-width: 920px; margin: 0 auto; padding: 0 28px; }
 
   /* ---------- Language toggle ---------- */
@@ -54,7 +58,7 @@
   }
   .lang-btn {
     border: none; background: transparent; color: var(--ink-soft);
-    font-family: var(--font-en-body); font-size: 13px; font-weight: 500;
+    font-family: var(--font-en-body); font-size: 13px; font-weight: 600;
     padding: 5px 14px; border-radius: 999px; cursor: pointer; line-height: 1;
   }
   .lang-btn[aria-pressed="true"] { background: var(--mocha); color: #fff; }
@@ -71,43 +75,44 @@
   .hero h1 {
     font-family: var(--font-display);
     color: #fff;
-    font-size: clamp(1.85rem, 4.4vw, 3rem);
+    font-size: clamp(2.1rem, 5.2vw, 3.4rem);
     line-height: 1.35;
     letter-spacing: .02em;
-    text-shadow: 0 2px 20px rgba(80,50,90,.16);
+    text-shadow: 0 2px 20px rgba(80,50,90,.18);
   }
   :root[data-lang="en"] .hero h1 {
-    font-weight: 350; /* 英語の太さを落として繊細に */
-    letter-spacing: .01em;
+    font-weight: 500;
+    letter-spacing: -.005em;
     line-height: 1.25;
   }
   .hero .lede {
-    color: #fff; opacity: .95; font-size: 1.05rem; margin-top: 28px;
-    max-width: 38em; margin-left: auto; margin-right: auto; line-height: 1.85;
+    color: #fff; opacity: .95; font-size: 1.1rem; margin-top: 28px;
+    max-width: 40em; margin-left: auto; margin-right: auto; line-height: 1.85;
+    font-weight: 400;
   }
   .scroll-cue { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 1; color: #fff; opacity: .8; font-family: var(--font-en-body); font-size: .78rem; letter-spacing: .1em; }
 
   /* ---------- Clean Sections ---------- */
-  section { padding: 90px 0; }
-  .clean-head { margin-bottom: 28px; }
+  section { padding: 96px 0; }
+  .clean-head { margin-bottom: 32px; }
   .kicker { font-family: var(--font-en-display); font-style: italic; color: var(--mocha); font-size: 1.15rem; margin-bottom: 12px; }
   h2.sec-title {
     font-family: var(--font-display);
-    font-size: clamp(1.4rem, 3vw, 1.95rem);
-    line-height: 1.45; letter-spacing: .02em; color: var(--ink);
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    line-height: 1.45; letter-spacing: .01em; color: var(--ink);
   }
   :root[data-lang="en"] h2.sec-title {
-    font-weight: 350; /* 見出しを太字から上品なレギュラーへ */
-    letter-spacing: .005em;
+    font-weight: 500;
+    letter-spacing: -.01em;
     line-height: 1.3;
   }
   .sec-intro { color: var(--ink-soft); font-size: 1.02rem; line-height: 1.9; margin-top: 18px; }
 
   /* ---------- Belief Section ---------- */
-  .belief-body { display: flex; flex-direction: column; gap: 18px; margin-top: 24px; }
-  .belief-body p { color: var(--ink); font-size: 1.05rem; line-height: 1.95; }
+  .belief-body { display: flex; flex-direction: column; gap: 18px; margin-top: 28px; }
+  .belief-body p { color: var(--ink); font-size: 1.02rem; line-height: 1.95; }
 
-  /* ---------- Venn Diagram (Slate Mist × Sand Beige) ---------- */
+  /* ---------- Venn Diagram (Indigo Blue × Sand Beige) ---------- */
   .venn-container { margin-top: 50px; display: flex; justify-content: center; }
   .venn-wrap {
     display: flex; position: relative; width: 100%; max-width: 860px;
@@ -119,25 +124,25 @@
     position: relative; mix-blend-mode: multiply; border: none;
     transition: transform .3s ease;
   }
-  /* 左：スレートミスト（透き通るブルーグレー） */
+  /* 左：指定のフレンチ・インディゴブルー（透け感を保ちつつ青みを強化） */
   .venn-circle.i {
-    background: radial-gradient(circle at 40% 40%, rgba(195, 212, 222, 0.45), rgba(215, 228, 235, 0.35));
+    background: radial-gradient(circle at 40% 40%, rgba(65, 103, 153, 0.38), rgba(110, 150, 195, 0.28));
     margin-right: -22px; z-index: 1; text-align: left; padding-right: 92px;
   }
-  /* 右：サンドベージュ（温かみのあるエクリュ） */
+  /* 右：温かみのあるサンドベージュ */
   .venn-circle.e {
     background: radial-gradient(circle at 60% 40%, rgba(228, 215, 198, 0.45), rgba(238, 228, 215, 0.35));
     margin-left: -22px; z-index: 2; text-align: right; padding-left: 92px;
   }
-  .venn-circle .tag { font-family: var(--font-en-display); font-style: italic; font-size: 1.25rem; margin-bottom: 8px; }
-  .venn-circle.i .tag { color: #526E7E; }
+  .venn-circle .tag { font-family: var(--font-en-display); font-style: italic; font-size: 1.3rem; margin-bottom: 8px; }
+  .venn-circle.i .tag { color: var(--indigo-blue); }
   .venn-circle.e .tag { color: #8A6D56; }
   .venn-circle h3 {
     font-family: var(--font-display);
-    font-size: 1.15rem; margin-bottom: 12px; line-height: 1.45; color: var(--ink);
+    font-size: 1.2rem; margin-bottom: 12px; line-height: 1.45; color: var(--ink);
   }
-  :root[data-lang="en"] .venn-circle h3 { font-weight: 400; }
-  .venn-circle p { font-size: .83rem; line-height: 1.7; color: var(--ink); }
+  :root[data-lang="en"] .venn-circle h3 { font-weight: 500; }
+  .venn-circle p { font-size: .88rem; line-height: 1.75; color: var(--ink); }
 
   /* ---------- Works Grid ---------- */
   .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 36px; }
@@ -149,25 +154,25 @@
   .work-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,.04); }
   .work-badge {
     align-self: flex-start; font-family: var(--font-en-body); font-size: .75rem;
-    letter-spacing: .06em; padding: 5px 13px; border-radius: 20px; font-weight: 500;
+    letter-spacing: .06em; padding: 5px 13px; border-radius: 20px; font-weight: 600;
   }
-  .work-badge.i { color: #526E7E; background: rgba(195, 212, 222, 0.3); }
+  .work-badge.i { color: var(--indigo-blue); background: var(--indigo-light); }
   .work-badge.e { color: #8A6D56; background: rgba(228, 215, 198, 0.35); }
-  .work-card h3 { font-family: var(--font-en-display); font-size: 1.35rem; font-weight: 400; }
+  .work-card h3 { font-family: var(--font-en-display); font-size: 1.35rem; font-weight: 500; }
   .work-card p { color: var(--ink-soft); font-size: .96rem; line-height: 1.8; }
 
   /* ---------- Profile Section ---------- */
   .about-name {
     font-family: var(--font-display);
-    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
-    letter-spacing: .03em; color: var(--ink);
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    letter-spacing: .02em; color: var(--ink);
   }
-  :root[data-lang="en"] .about-name { font-weight: 400; }
+  :root[data-lang="en"] .about-name { font-weight: 500; }
   .about-title { font-family: var(--font-en-display); font-style: italic; color: var(--mocha); font-size: 1.05rem; margin-top: 4px; }
   .about-body { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
   .about-body p { color: var(--ink); font-size: 1.02rem; line-height: 1.95; }
 
-  /* ---------- Modern Minimal Footer (1px Gradient Line) ---------- */
+  /* ---------- Modern Minimal Footer ---------- */
   footer {
     padding: 40px 28px 48px;
     background: var(--paper);
@@ -188,8 +193,8 @@
   .footer-links { display: flex; gap: 32px; }
   .footer-links a {
     text-decoration: none; color: var(--ink-soft);
-    font-family: var(--font-en-body); font-size: .88rem; font-weight: 400;
-    letter-spacing: .04em; transition: color .2s ease;
+    font-family: var(--font-en-body); font-size: .9rem; font-weight: 500;
+    letter-spacing: .03em; transition: color .2s ease;
   }
   .footer-links a:hover { color: var(--mocha); }
 
@@ -203,7 +208,7 @@
       mix-blend-mode: normal;
     }
     .venn-circle.i { margin-bottom: 20px !important; }
-    section { padding: 60px 0; }
+    section { padding: 64px 0; }
   }
 </style>
 </head>
@@ -217,8 +222,8 @@
   <!-- Hero -->
   <header class="hero">
     <div class="hero-inner">
-      <h1 data-i18n="hero.h1" data-html>Creating a world where everyone can live with ease.</h1>
-      <p class="lede" data-i18n="hero.lede" data-html>Based between the US and Japan, bridging business, culture, and human potential to cultivate a society where everyone can thrive.</p>
+      <h1 data-i18n="hero.h1" data-html>Creating a world where<br>everyone can live with ease.</h1>
+      <p class="lede" data-i18n="hero.lede" data-html>Based between the US and Japan, bridging business, culture, and human potential<br>to cultivate a society where everyone can thrive.</p>
     </div>
     <div class="scroll-cue">scroll ↓</div>
   </header>
@@ -229,7 +234,7 @@
       <div class="wrap">
         <div class="clean-head">
           <div class="kicker">My Belief</div>
-          <h2 class="sec-title" data-i18n="belief.title" data-html>A world where everyone can trust their potential and say, “I am enough as I am.”</h2>
+          <h2 class="sec-title" data-i18n="belief.title" data-html>A world where everyone can trust their potential and say,<br>“I am enough as I am.”</h2>
         </div>
         <div class="belief-body">
           <p data-i18n="belief.p1">To me, a society where everyone can live with ease is one where each person can believe in their own potential and take a confident step forward.</p>
@@ -319,9 +324,9 @@
 <script>
   const I18N = {
     en: {
-      "hero.h1": "Creating a world where everyone can live with ease.",
-      "hero.lede": "Based between the US and Japan, bridging business, culture, and human potential to cultivate a society where everyone can thrive.",
-      "belief.title": "A world where everyone can trust their potential and say, “I am enough as I am.”",
+      "hero.h1": "Creating a world where<br>everyone can live with ease.",
+      "hero.lede": "Based between the US and Japan, bridging business, culture, and human potential<br>to cultivate a society where everyone can thrive.",
+      "belief.title": "A world where everyone can trust their potential and say,<br>“I am enough as I am.”",
       "belief.p1": "To me, a society where everyone can live with ease is one where each person can believe in their own potential and take a confident step forward.",
       "belief.p2": "We all carry inherent strengths. Yet at times, our environments can obscure them. While we cannot rewrite the circumstances we were born into, I firmly believe we can always reshape how we see ourselves and how we choose to live.",
       "belief.p3": "That is why I want to help build a world where people can truly feel, “I am enough as I am,” trusting their possibilities and carving their own path.",
