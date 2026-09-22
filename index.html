@@ -11,20 +11,17 @@
   :root {
     --paper: #FAF8F5;
     --paper-2: #F3EFEA;
-    --ink: #2C3539;         /* 優しいスレートブラック */
-    --ink-soft: #636F78;    /* 落ち着いたニュートラルグレー */
+    --ink: #302831;
+    --ink-soft: #635864;
     
-    /* 添付画像のような知的なブルー系 */
-    --slate-blue: #4A6587;
-    --slate-blue-light: #EBF1F7;
+    /* 添付画像に基づくブランドカラー */
+    --lilac-deep: #7D6B9D;
+    --rose-accent: #C8758D;
+    --apricot-accent: #D9886C;
     
-    /* ヒーローと連動する柔らかな温色 */
-    --terracotta: #D07A63;
-    --warm-peach: #FDF2EC;
+    --line: #E8DFE5;
     
-    --line: #E5DFD7;
-    
-    /* ヒーローグラデーション（既存維持） */
+    /* ヒーローグラデーション */
     --hero-a: #9A8BD6;
     --hero-b: #E7A6BD;
     --hero-c: #F0C6A4;
@@ -62,7 +59,7 @@
     font-family: var(--font-en-body); font-size: 13px; font-weight: 600;
     padding: 5px 14px; border-radius: 999px; cursor: pointer; line-height: 1;
   }
-  .lang-btn[aria-pressed="true"] { background: var(--slate-blue); color: #fff; }
+  .lang-btn[aria-pressed="true"] { background: var(--lilac-deep); color: #fff; }
 
   /* ---------- Hero ---------- */
   .hero {
@@ -80,49 +77,48 @@
 
   /* ---------- Clean Sections ---------- */
   section { padding: 90px 0; }
-  .kicker { font-family: var(--font-en-display); font-style: italic; color: var(--slate-blue); font-size: 1.15rem; margin-bottom: 12px; }
+  .clean-head { margin-bottom: 28px; }
+  .kicker { font-family: var(--font-en-display); font-style: italic; color: var(--lilac-deep); font-size: 1.15rem; margin-bottom: 12px; }
   h2.sec-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.6rem, 3.8vw, 2.3rem); line-height: 1.45; letter-spacing: .02em; color: var(--ink); }
   :root[data-lang="en"] h2.sec-title { line-height: 1.2; letter-spacing: -.01em; }
-  .sec-intro { color: var(--ink-soft); font-size: 1.02rem; line-height: 1.9; margin-top: 20px; }
+  .sec-intro { color: var(--ink-soft); font-size: 1.02rem; line-height: 1.9; margin-top: 18px; }
 
   /* ---------- Belief Section ---------- */
-  .belief-body { display: flex; flex-direction: column; gap: 18px; margin-top: 28px; }
+  .belief-body { display: flex; flex-direction: column; gap: 18px; margin-top: 24px; }
   .belief-body p { color: var(--ink); font-size: 1.05rem; line-height: 1.95; }
 
-  /* ---------- Venn Diagram (Blue & Warm Soft) ---------- */
+  /* ---------- Venn Diagram (Translucent & Blended) ---------- */
   .venn-container { margin-top: 50px; display: flex; justify-content: center; }
-  .venn-wrap { display: flex; position: relative; width: 100%; max-width: 800px; justify-content: center; }
+  .venn-wrap {
+    display: flex; position: relative; width: 100%; max-width: 840px;
+    justify-content: center; isolation: isolate;
+  }
   .venn-circle {
     width: 440px; min-height: 440px; border-radius: 50%;
     padding: 60px 48px; display: flex; flex-direction: column; justify-content: center;
-    position: relative; backdrop-filter: blur(8px);
+    position: relative; mix-blend-mode: multiply; backdrop-filter: blur(10px);
+    transition: transform .3s ease;
   }
+  /* 左：ライラック〜ローズ（半透明） */
   .venn-circle.i {
-    background: radial-gradient(circle at 35% 35%, rgba(205, 220, 235, 0.7), rgba(225, 235, 245, 0.5));
-    border: 1px solid rgba(74, 101, 135, 0.25);
-    margin-right: -60px; z-index: 1; text-align: left; padding-right: 64px;
+    background: linear-gradient(135deg, rgba(186, 160, 215, 0.42) 0%, rgba(226, 155, 185, 0.38) 100%);
+    border: 1px solid rgba(154, 139, 214, 0.35);
+    margin-right: -45px; z-index: 1; text-align: left; padding-right: 70px;
   }
+  /* 右：ローズ〜アプリコット（半透明） */
   .venn-circle.e {
-    background: radial-gradient(circle at 65% 35%, rgba(248, 220, 208, 0.7), rgba(252, 236, 228, 0.5));
-    border: 1px solid rgba(208, 122, 99, 0.25);
-    margin-left: -60px; z-index: 2; text-align: right; padding-left: 64px;
+    background: linear-gradient(135deg, rgba(235, 165, 185, 0.38) 0%, rgba(246, 195, 168, 0.42) 100%);
+    border: 1px solid rgba(231, 166, 189, 0.35);
+    margin-left: -45px; z-index: 2; text-align: right; padding-left: 70px;
   }
-  .venn-circle .tag { font-family: var(--font-en-display); font-style: italic; font-size: 1.25rem; margin-bottom: 8px; }
-  .venn-circle.i .tag { color: var(--slate-blue); }
-  .venn-circle.e .tag { color: var(--terracotta); }
-  .venn-circle h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; margin-bottom: 12px; line-height: 1.5; }
+  .venn-circle .tag { font-family: var(--font-en-display); font-style: italic; font-size: 1.3rem; margin-bottom: 8px; }
+  .venn-circle.i .tag { color: var(--lilac-deep); }
+  .venn-circle.e .tag { color: var(--rose-accent); }
+  .venn-circle h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; margin-bottom: 12px; line-height: 1.5; color: var(--ink); }
   .venn-circle p { font-size: .88rem; line-height: 1.75; color: var(--ink); }
 
-  .venn-overlap {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3;
-    background: rgba(255, 255, 255, 0.9); border: 1px solid var(--line);
-    border-radius: 999px; padding: 10px 22px; font-family: var(--font-display);
-    font-size: .88rem; font-weight: 600; color: var(--ink); box-shadow: 0 4px 18px rgba(0,0,0,.04);
-    white-space: nowrap; pointer-events: none;
-  }
-
   /* ---------- Works Grid ---------- */
-  .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 40px; }
+  .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 36px; }
   .work-card {
     background: #fff; border: 1px solid var(--line); border-radius: 20px;
     padding: 36px 32px; display: flex; flex-direction: column; gap: 14px;
@@ -133,51 +129,54 @@
     align-self: flex-start; font-family: var(--font-en-body); font-size: .75rem;
     letter-spacing: .06em; padding: 5px 13px; border-radius: 20px; font-weight: 600;
   }
-  .work-badge.i { color: var(--slate-blue); background: var(--slate-blue-light); }
-  .work-badge.e { color: var(--terracotta); background: var(--warm-peach); }
+  .work-badge.i { color: var(--lilac-deep); background: rgba(186, 160, 215, 0.18); }
+  .work-badge.e { color: var(--rose-accent); background: rgba(231, 166, 189, 0.2); }
   .work-card h3 { font-family: var(--font-en-display); font-size: 1.4rem; font-weight: 600; }
   .work-card p { color: var(--ink-soft); font-size: .96rem; line-height: 1.8; }
 
   /* ---------- Profile Section ---------- */
-  .about-name { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.7rem, 3.8vw, 2.3rem); }
-  .about-title { font-family: var(--font-en-display); font-style: italic; color: var(--slate-blue); font-size: 1.15rem; margin-top: 6px; }
+  .about-name { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.4rem, 2.8vw, 1.85rem); }
+  .about-title { font-family: var(--font-en-display); font-style: italic; color: var(--lilac-deep); font-size: 1.1rem; margin-top: 4px; }
   .about-body { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
   .about-body p { color: var(--ink); font-size: 1.02rem; line-height: 1.95; }
   
-  .about-connect { margin-top: 36px; padding-top: 26px; border-top: 1px solid var(--line); display: flex; align-items: baseline; gap: 24px; }
+  .about-connect { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; align-items: baseline; gap: 20px; }
   .about-connect .label { font-family: var(--font-en-display); font-style: italic; font-weight: 600; font-size: 1.05rem; }
-  .contact-links { display: flex; gap: 14px; flex-wrap: wrap; }
+  .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
   .contact-links a {
     color: var(--ink); text-decoration: none; font-family: var(--font-en-body);
-    font-weight: 500; font-size: .92rem; padding: 6px 18px;
+    font-weight: 500; font-size: .9rem; padding: 6px 18px;
     background: #fff; border-radius: 20px; border: 1px solid var(--line);
     transition: all .2s ease;
   }
-  .contact-links a:hover { border-color: var(--slate-blue); color: var(--slate-blue); }
+  .contact-links a:hover { border-color: var(--lilac-deep); color: var(--lilac-deep); }
 
-  /* ---------- Minimal Footer (Slim Gradient) ---------- */
+  /* ---------- Slim Minimal Footer ---------- */
   footer {
-    padding: 34px 28px;
-    background: linear-gradient(90deg, color-mix(in srgb, var(--hero-a) 40%, #fff), color-mix(in srgb, var(--hero-b) 40%, #fff), color-mix(in srgb, var(--hero-c) 40%, #fff));
+    padding: 24px 28px;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--hero-a) 30%, #fff), color-mix(in srgb, var(--hero-b) 30%, #fff), color-mix(in srgb, var(--hero-c) 30%, #fff));
     border-top: 1px solid var(--line);
     margin-top: 80px;
   }
   .footer-inner {
     max-width: 920px; margin: 0 auto;
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    display: flex; justify-content: center; align-items: center;
   }
-  .footer-sig { font-family: var(--font-en-display); font-style: italic; font-size: .92rem; color: var(--ink); opacity: .85; }
-  .footer-links { display: flex; gap: 20px; }
+  .footer-links { display: flex; gap: 24px; }
   .footer-links a { text-decoration: none; color: var(--ink); font-family: var(--font-en-body); font-size: .88rem; font-weight: 500; opacity: .8; transition: opacity .2s; }
   .footer-links a:hover { opacity: 1; }
 
+  /* ---------- Mobile Optimization ---------- */
   @media (max-width: 768px) {
     .works-grid { grid-template-columns: 1fr; }
     .venn-wrap { flex-direction: column; align-items: center; }
-    .venn-circle { width: 100%; max-width: 360px; min-height: auto; border-radius: 28px; padding: 36px 28px; text-align: left !important; margin: 0 !important; }
-    .venn-circle.i { margin-bottom: 20px !important; }
-    .venn-overlap { position: static; transform: none; margin: 10px 0; }
-    .footer-inner { flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+    .venn-circle {
+      width: 100%; max-width: 360px; min-height: auto; border-radius: 28px;
+      padding: 36px 28px; text-align: left !important; margin: 0 !important;
+      mix-blend-mode: normal;
+    }
+    .venn-circle.i { margin-bottom: 20px !important; padding-right: 28px; }
+    .venn-circle.e { padding-left: 28px; }
     section { padding: 60px 0; }
   }
 </style>
@@ -214,13 +213,13 @@
       </div>
     </section>
 
-    <!-- How I Approach -->
+    <!-- How I Approach (Venn Diagram) -->
     <section id="approach">
       <div class="wrap">
         <div class="clean-head">
           <div class="kicker">How I approach</div>
           <h2 class="sec-title" data-i18n="approach.h2" data-html>“Ease of living” is built from<br>both within and without.</h2>
-          <p class="sec-intro" data-i18n="approach.intro">An internal dialogue to know, understand, and accept who you are. An external environment to encounter diverse perspectives, broaden horizons, and take on new challenges. Stepping outside a safe harbor, drawing insights from the world, and returning to deepen your self-awareness. Through this continuous cycle, we build an authentic inner core and expand our possibilities.</p>
+          <p class="sec-intro" data-i18n="approach.intro">An internal dialogue to know, understand, and accept who you are. An external environment to encounter diverse perspectives, broaden horizons, and take on new challenges. Moving between these continuous cycles, we build an authentic inner core and expand our possibilities.</p>
         </div>
 
         <div class="venn-container">
@@ -230,8 +229,6 @@
               <h3 data-i18n="inner.h3" data-html>Knowing &amp; Navigating</h3>
               <p data-i18n="inner.p">Understanding the mechanics of mind and emotions to observe triggers, freeing ourselves from external perceptions to build quiet self-trust: “I am enough as I am.”</p>
             </div>
-            
-            <div class="venn-overlap" data-i18n="venn.overlap">Ease of Living</div>
 
             <div class="venn-circle e">
               <div class="tag">External</div>
@@ -248,7 +245,7 @@
       <div class="wrap">
         <div class="clean-head">
           <div class="kicker">Current Explorations</div>
-          <h2 class="sec-title" data-i18n="work.h2">In the Works</h2>
+          <h2 class="sec-title">In the Works</h2>
         </div>
         <div class="works-grid">
           <div class="work-card">
@@ -293,7 +290,6 @@
   <!-- Slim Minimal Footer -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-sig">Momoko Furukawa — Based between US &amp; Japan</div>
       <div class="footer-links">
         <a href="#" target="_blank" rel="noopener">LinkedIn</a>
         <a href="#" target="_blank" rel="noopener">Substack</a>
@@ -312,13 +308,11 @@
       "belief.p2": "We all carry inherent strengths. Yet at times, our environments can obscure them. While we cannot rewrite the circumstances we were born into, I firmly believe we can always reshape how we see ourselves and how we choose to live.",
       "belief.p3": "That is why I want to help build a world where people can truly feel, “I am enough as I am,” trusting their possibilities and carving their own path.",
       "approach.h2": "“Ease of living” is built from<br>both within and without.",
-      "approach.intro": "An internal dialogue to know, understand, and accept who you are. An external environment to encounter diverse perspectives, broaden horizons, and take on new challenges. Stepping outside a safe harbor, drawing insights from the world, and returning to deepen your self-awareness. Through this continuous cycle, we build an authentic inner core and expand our possibilities.",
+      "approach.intro": "An internal dialogue to know, understand, and accept who you are. An external environment to encounter diverse perspectives, broaden horizons, and take on new challenges. Moving between these continuous cycles, we build an authentic inner core and expand our possibilities.",
       "inner.h3": "Knowing &amp; Navigating",
       "inner.p": "Understanding the mechanics of mind and emotions to observe triggers, freeing ourselves from external perceptions to build quiet self-trust: “I am enough as I am.”",
       "outer.h3": "Horizons &amp; Safe Havens",
       "outer.p": "Encountering new values and expansive horizons with psychological safety, building systemic environments that empower people to dare and explore.",
-      "venn.overlap": "Ease of Living",
-      "work.h2": "In the Works",
       "work.card1.title": "Self-Dialogue Project",
       "work.card1.desc": "Prototyping an introspective tool designed to peel back external perceptions, observe emotional triggers, and foster authentic self-dialogue. Documenting the journey alongside research in neuroscience and psychology.",
       "work.card2.title": "Tansan Times",
@@ -336,13 +330,11 @@
       "belief.p2": "誰しも必ず良いところがある。でも、時に環境によってそれが見えなくなる時もある。生まれ育った環境を変えることはできないけれど、自身の考え方や生き方は変えることができると信じています。",
       "belief.p3": "だからこそ、ひとりひとりが「自分は自分で大丈夫」と自分の可能性を信じ、突き進んでいける社会を創りたいと考えています。",
       "approach.h2": "「生きやすさ」は、内側と外側の<br>両輪から育まれる",
-      "approach.intro": "自分自身を知り、理解し、受け入れる「内側の対話」。多様な価値観や世界に触れ、視野を広げ、チャレンジできる「外側の環境」。安心できる枠組みから一歩外へ踏み出し、得られた気づきを糧に、また自分自身を深めていく。これらの循環を行き来し、人は自分らしい軸を育て、可能性を広げていくことができると考えています。",
+      "approach.intro": "自分自身を知り、理解し、受け入れる「内側の対話」。多様な価値観や世界に触れ、視野を広げて挑戦できる「外側の環境」。これらの循環を行き来しながら、人は自分らしい軸を育て、可能性を広げていくことができると考えています。",
       "inner.h3": "内面からのアプローチ：<br>自分を知り、うまく付き合う",
       "inner.p": "脳や心の仕組みを知り感情を客観視する。他人の目や思い込みから自由になり、「自分は自分で大丈夫」という納得感を育てていく。",
       "outer.h3": "環境からのアプローチ：<br>視野を広げ、安心して挑戦する",
       "outer.p": "多様な価値観に触れて選択肢を知る。背中を押してくれる安心できる居場所やカルチャーを、社会の仕組みとして届けていく。",
-      "venn.overlap": "生きやすさの両輪",
-      "work.h2": "進行中の探求と実践",
       "work.card1.title": "Self-Dialogue Project",
       "work.card1.desc": "思考や感情のトリガーを客観視し、自分とうまく向き合うための内省プロダクトのプロトタイピング。開発プロセスや背景の脳科学リサーチも発信予定。",
       "work.card2.title": "Tansan Times",
