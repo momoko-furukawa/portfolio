@@ -10,18 +10,22 @@
 <style>
   :root {
     --paper: #FAF8F5;
-    --paper-2: #F3EFEA;
+    --paper-2: #F4EFEA;
     --ink: #302831;
     --ink-soft: #635864;
     
-    /* 添付画像に基づくブランドカラー */
-    --lilac-deep: #7D6B9D;
+    /* B案：アースブラウン / モカ系アクセント */
+    --mocha: #7A5C50;
+    --mocha-light: #EFE8E3;
+    
+    /* ベン図・カード用の柔らかなニュアンス */
+    --lilac-muted: #8E7C9E;
     --rose-accent: #C8758D;
     --apricot-accent: #D9886C;
     
     --line: #E8DFE5;
     
-    /* ヒーローグラデーション */
+    /* ヒーローグラデーション（既存維持） */
     --hero-a: #9A8BD6;
     --hero-b: #E7A6BD;
     --hero-c: #F0C6A4;
@@ -59,7 +63,7 @@
     font-family: var(--font-en-body); font-size: 13px; font-weight: 600;
     padding: 5px 14px; border-radius: 999px; cursor: pointer; line-height: 1;
   }
-  .lang-btn[aria-pressed="true"] { background: var(--lilac-deep); color: #fff; }
+  .lang-btn[aria-pressed="true"] { background: var(--mocha); color: #fff; }
 
   /* ---------- Hero ---------- */
   .hero {
@@ -78,7 +82,7 @@
   /* ---------- Clean Sections ---------- */
   section { padding: 90px 0; }
   .clean-head { margin-bottom: 28px; }
-  .kicker { font-family: var(--font-en-display); font-style: italic; color: var(--lilac-deep); font-size: 1.15rem; margin-bottom: 12px; }
+  .kicker { font-family: var(--font-en-display); font-style: italic; color: var(--mocha); font-size: 1.15rem; margin-bottom: 12px; }
   h2.sec-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.6rem, 3.8vw, 2.3rem); line-height: 1.45; letter-spacing: .02em; color: var(--ink); }
   :root[data-lang="en"] h2.sec-title { line-height: 1.2; letter-spacing: -.01em; }
   .sec-intro { color: var(--ink-soft); font-size: 1.02rem; line-height: 1.9; margin-top: 18px; }
@@ -87,35 +91,35 @@
   .belief-body { display: flex; flex-direction: column; gap: 18px; margin-top: 24px; }
   .belief-body p { color: var(--ink); font-size: 1.05rem; line-height: 1.95; }
 
-  /* ---------- Venn Diagram (Translucent & Blended) ---------- */
+  /* ---------- Venn Diagram (Translucent & Blended / Safe Margins) ---------- */
   .venn-container { margin-top: 50px; display: flex; justify-content: center; }
   .venn-wrap {
-    display: flex; position: relative; width: 100%; max-width: 840px;
+    display: flex; position: relative; width: 100%; max-width: 860px;
     justify-content: center; isolation: isolate;
   }
   .venn-circle {
     width: 440px; min-height: 440px; border-radius: 50%;
-    padding: 60px 48px; display: flex; flex-direction: column; justify-content: center;
+    padding: 60px 44px; display: flex; flex-direction: column; justify-content: center;
     position: relative; mix-blend-mode: multiply; backdrop-filter: blur(10px);
     transition: transform .3s ease;
   }
-  /* 左：ライラック〜ローズ（半透明） */
+  /* 左：ライラック〜ローズ（重なりを浅くし、右余白を拡大） */
   .venn-circle.i {
     background: linear-gradient(135deg, rgba(186, 160, 215, 0.42) 0%, rgba(226, 155, 185, 0.38) 100%);
     border: 1px solid rgba(154, 139, 214, 0.35);
-    margin-right: -45px; z-index: 1; text-align: left; padding-right: 70px;
+    margin-right: -22px; z-index: 1; text-align: left; padding-right: 92px;
   }
-  /* 右：ローズ〜アプリコット（半透明） */
+  /* 右：ローズ〜アプリコット（重なりを浅くし、左余白を拡大） */
   .venn-circle.e {
     background: linear-gradient(135deg, rgba(235, 165, 185, 0.38) 0%, rgba(246, 195, 168, 0.42) 100%);
     border: 1px solid rgba(231, 166, 189, 0.35);
-    margin-left: -45px; z-index: 2; text-align: right; padding-left: 70px;
+    margin-left: -22px; z-index: 2; text-align: right; padding-left: 92px;
   }
   .venn-circle .tag { font-family: var(--font-en-display); font-style: italic; font-size: 1.3rem; margin-bottom: 8px; }
-  .venn-circle.i .tag { color: var(--lilac-deep); }
+  .venn-circle.i .tag { color: var(--lilac-muted); }
   .venn-circle.e .tag { color: var(--rose-accent); }
   .venn-circle h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; margin-bottom: 12px; line-height: 1.5; color: var(--ink); }
-  .venn-circle p { font-size: .88rem; line-height: 1.75; color: var(--ink); }
+  .venn-circle p { font-size: .83rem; line-height: 1.7; color: var(--ink); }
 
   /* ---------- Works Grid ---------- */
   .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 36px; }
@@ -129,32 +133,21 @@
     align-self: flex-start; font-family: var(--font-en-body); font-size: .75rem;
     letter-spacing: .06em; padding: 5px 13px; border-radius: 20px; font-weight: 600;
   }
-  .work-badge.i { color: var(--lilac-deep); background: rgba(186, 160, 215, 0.18); }
-  .work-badge.e { color: var(--rose-accent); background: rgba(231, 166, 189, 0.2); }
+  .work-badge.i { color: var(--mocha); background: var(--mocha-light); }
+  .work-badge.e { color: var(--apricot-accent); background: rgba(246, 195, 168, 0.25); }
   .work-card h3 { font-family: var(--font-en-display); font-size: 1.4rem; font-weight: 600; }
   .work-card p { color: var(--ink-soft); font-size: .96rem; line-height: 1.8; }
 
   /* ---------- Profile Section ---------- */
-  .about-name { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.4rem, 2.8vw, 1.85rem); }
-  .about-title { font-family: var(--font-en-display); font-style: italic; color: var(--lilac-deep); font-size: 1.1rem; margin-top: 4px; }
+  .about-name { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 1.85rem); }
+  .about-title { font-family: var(--font-en-display); font-style: italic; color: var(--mocha); font-size: 1.1rem; margin-top: 4px; }
   .about-body { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
   .about-body p { color: var(--ink); font-size: 1.02rem; line-height: 1.95; }
-  
-  .about-connect { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; align-items: baseline; gap: 20px; }
-  .about-connect .label { font-family: var(--font-en-display); font-style: italic; font-weight: 600; font-size: 1.05rem; }
-  .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
-  .contact-links a {
-    color: var(--ink); text-decoration: none; font-family: var(--font-en-body);
-    font-weight: 500; font-size: .9rem; padding: 6px 18px;
-    background: #fff; border-radius: 20px; border: 1px solid var(--line);
-    transition: all .2s ease;
-  }
-  .contact-links a:hover { border-color: var(--lilac-deep); color: var(--lilac-deep); }
 
   /* ---------- Slim Minimal Footer ---------- */
   footer {
-    padding: 24px 28px;
-    background: linear-gradient(90deg, color-mix(in srgb, var(--hero-a) 30%, #fff), color-mix(in srgb, var(--hero-b) 30%, #fff), color-mix(in srgb, var(--hero-c) 30%, #fff));
+    padding: 26px 28px;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--hero-a) 25%, #fff), color-mix(in srgb, var(--hero-b) 25%, #fff), color-mix(in srgb, var(--hero-c) 25%, #fff));
     border-top: 1px solid var(--line);
     margin-top: 80px;
   }
@@ -162,9 +155,9 @@
     max-width: 920px; margin: 0 auto;
     display: flex; justify-content: center; align-items: center;
   }
-  .footer-links { display: flex; gap: 24px; }
-  .footer-links a { text-decoration: none; color: var(--ink); font-family: var(--font-en-body); font-size: .88rem; font-weight: 500; opacity: .8; transition: opacity .2s; }
-  .footer-links a:hover { opacity: 1; }
+  .footer-links { display: flex; gap: 26px; }
+  .footer-links a { text-decoration: none; color: var(--ink); font-family: var(--font-en-body); font-size: .9rem; font-weight: 500; opacity: .8; transition: opacity .2s, color .2s; }
+  .footer-links a:hover { opacity: 1; color: var(--mocha); }
 
   /* ---------- Mobile Optimization ---------- */
   @media (max-width: 768px) {
@@ -172,11 +165,10 @@
     .venn-wrap { flex-direction: column; align-items: center; }
     .venn-circle {
       width: 100%; max-width: 360px; min-height: auto; border-radius: 28px;
-      padding: 36px 28px; text-align: left !important; margin: 0 !important;
+      padding: 36px 28px !important; text-align: left !important; margin: 0 !important;
       mix-blend-mode: normal;
     }
-    .venn-circle.i { margin-bottom: 20px !important; padding-right: 28px; }
-    .venn-circle.e { padding-left: 28px; }
+    .venn-circle.i { margin-bottom: 20px !important; }
     section { padding: 60px 0; }
   }
 </style>
@@ -192,7 +184,7 @@
   <header class="hero">
     <div class="hero-inner">
       <h1 data-i18n="hero.h1" data-html>Creating a world where<br>everyone can live with ease.</h1>
-      <p class="lede" data-i18n="hero.lede">Based between the US and Japan, bridging business, culture, and human potential to cultivate a society where everyone can thrive.</p>
+      <p class="lede" data-i18n="hero.lede" data-html>Based between the US and Japan, bridging business, culture, and human potential to cultivate a society where everyone can thrive.</p>
     </div>
     <div class="scroll-cue">scroll ↓</div>
   </header>
@@ -274,14 +266,6 @@
           <p data-i18n="about.p1">Began my career at IBM Japan as a Technical Sales specialist, focusing on enterprise integration and business process optimization.</p>
           <p data-i18n="about.p2">Driven by a deep curiosity about human thoughts, emotions, and the cultural dynamics of organizations, I expanded into brand strategy. Working closely with executive leadership as a branding consultant, I led diverse initiatives from corporate culture transformation and behavioral guidelines to spatial and brand development.</p>
           <p data-i18n="about.p3">To bridge the structural logic of systems with the qualitative nuances of human culture, I completed my MBA at Hult International Business School in Boston. Currently based in New York, preparing to step into a new role as an IT consultant.</p>
-        </div>
-        <div class="about-connect">
-          <div class="label">Connect</div>
-          <div class="contact-links">
-            <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="#" target="_blank" rel="noopener">Substack</a>
-            <a href="mailto:your-email@example.com">Email</a>
-          </div>
         </div>
       </div>
     </section>
