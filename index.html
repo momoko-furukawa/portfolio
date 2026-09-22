@@ -14,18 +14,14 @@
     --ink: #302831;
     --ink-soft: #635864;
     
-    /* B案：アースブラウン / モカ系アクセント */
+    /* モカブラウン・トープ（統一キーカラー） */
     --mocha: #7A5C50;
     --mocha-light: #EFE8E3;
-    
-    /* ベン図・カード用の柔らかなニュアンス */
-    --lilac-muted: #8E7C9E;
-    --rose-accent: #C8758D;
-    --apricot-accent: #D9886C;
+    --mocha-subtle: rgba(122, 92, 80, 0.12);
     
     --line: #E8DFE5;
     
-    /* ヒーローグラデーション（既存維持） */
+    /* ヒーローグラデーション */
     --hero-a: #9A8BD6;
     --hero-b: #E7A6BD;
     --hero-c: #F0C6A4;
@@ -91,7 +87,7 @@
   .belief-body { display: flex; flex-direction: column; gap: 18px; margin-top: 24px; }
   .belief-body p { color: var(--ink); font-size: 1.05rem; line-height: 1.95; }
 
-  /* ---------- Venn Diagram (Translucent & Blended / Safe Margins) ---------- */
+  /* ---------- Venn Diagram (Borderless & High-Translucency) ---------- */
   .venn-container { margin-top: 50px; display: flex; justify-content: center; }
   .venn-wrap {
     display: flex; position: relative; width: 100%; max-width: 860px;
@@ -100,24 +96,22 @@
   .venn-circle {
     width: 440px; min-height: 440px; border-radius: 50%;
     padding: 60px 44px; display: flex; flex-direction: column; justify-content: center;
-    position: relative; mix-blend-mode: multiply; backdrop-filter: blur(10px);
+    position: relative; mix-blend-mode: multiply; border: none; /* 縁の線を削除 */
     transition: transform .3s ease;
   }
-  /* 左：ライラック〜ローズ（重なりを浅くし、右余白を拡大） */
+  /* 左：澄んだラベンダー〜ソフトローズ（高透過） */
   .venn-circle.i {
-    background: linear-gradient(135deg, rgba(186, 160, 215, 0.42) 0%, rgba(226, 155, 185, 0.38) 100%);
-    border: 1px solid rgba(154, 139, 214, 0.35);
+    background: linear-gradient(135deg, rgba(186, 160, 215, 0.22) 0%, rgba(215, 165, 185, 0.20) 100%);
     margin-right: -22px; z-index: 1; text-align: left; padding-right: 92px;
   }
-  /* 右：ローズ〜アプリコット（重なりを浅くし、左余白を拡大） */
+  /* 右：ソフトローズ〜温かみのあるモカトープ（高透過） */
   .venn-circle.e {
-    background: linear-gradient(135deg, rgba(235, 165, 185, 0.38) 0%, rgba(246, 195, 168, 0.42) 100%);
-    border: 1px solid rgba(231, 166, 189, 0.35);
+    background: linear-gradient(135deg, rgba(215, 165, 185, 0.20) 0%, rgba(195, 165, 150, 0.24) 100%);
     margin-left: -22px; z-index: 2; text-align: right; padding-left: 92px;
   }
   .venn-circle .tag { font-family: var(--font-en-display); font-style: italic; font-size: 1.3rem; margin-bottom: 8px; }
-  .venn-circle.i .tag { color: var(--lilac-muted); }
-  .venn-circle.e .tag { color: var(--rose-accent); }
+  .venn-circle.i .tag { color: #8A729A; }
+  .venn-circle.e .tag { color: var(--mocha); }
   .venn-circle h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; margin-bottom: 12px; line-height: 1.5; color: var(--ink); }
   .venn-circle p { font-size: .83rem; line-height: 1.7; color: var(--ink); }
 
@@ -134,13 +128,20 @@
     letter-spacing: .06em; padding: 5px 13px; border-radius: 20px; font-weight: 600;
   }
   .work-badge.i { color: var(--mocha); background: var(--mocha-light); }
-  .work-badge.e { color: var(--apricot-accent); background: rgba(246, 195, 168, 0.25); }
+  .work-badge.e { color: var(--mocha); background: var(--mocha-subtle); } /* オレンジからモカトープへ統一 */
   .work-card h3 { font-family: var(--font-en-display); font-size: 1.4rem; font-weight: 600; }
   .work-card p { color: var(--ink-soft); font-size: .96rem; line-height: 1.8; }
 
-  /* ---------- Profile Section ---------- */
-  .about-name { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 1.85rem); }
-  .about-title { font-family: var(--font-en-display); font-style: italic; color: var(--mocha); font-size: 1.1rem; margin-top: 4px; }
+  /* ---------- Profile Section (Subtle & Quiet) ---------- */
+  .about-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    /* 2サイズ落として主張を抑制 */
+    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+    letter-spacing: .03em;
+    color: var(--ink);
+  }
+  .about-title { font-family: var(--font-en-display); font-style: italic; color: var(--mocha); font-size: 1.05rem; margin-top: 4px; }
   .about-body { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
   .about-body p { color: var(--ink); font-size: 1.02rem; line-height: 1.95; }
 
