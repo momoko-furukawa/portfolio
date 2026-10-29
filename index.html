@@ -17,8 +17,7 @@
 <meta property="og:title" content="Momoko Furukawa | 古川桃子 — Portfolio">
 <meta property="og:description" content="Cross-Cultural Brand & Organizational Strategist based between the US and Japan.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://momoko-furukawa.github.io/momoko_furukawa_portfolio/">
-
+<meta property="og:url" content="https://momoko-furukawa.github.io/portfolio/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Figtree:wght@300;400;500;600&family=Zen+Old+Mincho:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -28,37 +27,25 @@
     --paper-2: #F6F0EE;
     --ink: #332E33;
     --ink-soft: #756D74;
-
     --indigo-blue: #657FA8;
-    --indigo-light: rgba(101, 127, 168, 0.12);
-
     --mocha: #8B6C65;
     --mocha-light: #F1E7E3;
     --line: rgba(80, 60, 70, 0.10);
-
-    /* Hero / site gradient */
     --hero-a: #A99BD4;
     --hero-b: #DFA4C0;
     --hero-c: #F1C5A3;
-
-    /* Subtle background gradients */
     --lavender-bg: rgba(169, 155, 212, .10);
     --pink-bg: rgba(223, 164, 192, .10);
     --peach-bg: rgba(241, 197, 163, .13);
-
     --font-jp-display: "Zen Old Mincho", serif;
     --font-jp-body: "Zen Kaku Gothic New", sans-serif;
     --font-en-display: "Fraunces", "Zen Old Mincho", serif;
     --font-en-body: "Figtree", "Zen Kaku Gothic New", sans-serif;
-
     --font-display: var(--font-en-display);
     --font-body: var(--font-en-body);
   }
   :root[data-lang="en"] { --font-display: var(--font-en-display); --font-body: var(--font-en-body); }
-  :root[data-lang="ja"] {
-  --font-display: var(--font-jp-display); /* "Zen Old Mincho", serif */
-  --font-body: var(--font-jp-body);       /* "Zen Kaku Gothic New", sans-serif */
-  }
+  :root[data-lang="ja"] { --font-display: var(--font-jp-display); --font-body: var(--font-jp-body); }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -68,10 +55,9 @@
     line-height: 1.85; font-weight: 400;
     -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
-  :root[data-lang="en"] body { line-height: 1.75; font-weight: 400; }
+  :root[data-lang="en"] body { line-height: 1.75; }
   .wrap { max-width: 920px; margin: 0 auto; padding: 0 28px; }
 
-  /* ---------- Language toggle ---------- */
   .langbar {
     position: fixed; top: 20px; right: 20px; z-index: 60; display: flex; gap: 2px;
     background: rgba(255,255,255,.8); backdrop-filter: blur(10px);
@@ -83,12 +69,8 @@
     padding: 5px 14px; border-radius: 999px; cursor: pointer; line-height: 1;
     transition: all .2s ease;
   }
-  .lang-btn[aria-pressed="true"] {
-  background: var(--mocha);
-  color: #fff;
-  }
+  .lang-btn[aria-pressed="true"] { background: var(--mocha); color: #fff; }
 
-  /* ---------- Hero ---------- */
   .hero {
     position: relative; min-height: 88vh;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -98,185 +80,71 @@
   }
   .hero-inner { position: relative; z-index: 1; max-width: 820px; }
   .hero h1 {
-    font-family: var(--font-display);
-    color: #fff;
-    font-size: clamp(2.1rem, 5.2vw, 3.4rem);
-    line-height: 1.35;
-    letter-spacing: .02em;
+    font-family: var(--font-display); color: #fff;
+    font-size: clamp(2.1rem, 5.2vw, 3.4rem); line-height: 1.35; letter-spacing: .02em;
     text-shadow: 0 2px 20px rgba(80,50,90,.18);
   }
-  :root[data-lang="en"] .hero h1 {
-    font-weight: 500;
-    letter-spacing: -.005em;
-    line-height: 1.25;
-  }
+  :root[data-lang="en"] .hero h1 { font-weight: 500; letter-spacing: -.005em; line-height: 1.25; }
   .hero .lede {
     color: #fff; opacity: .95; font-size: 1.1rem; margin-top: 28px;
     max-width: 40em; margin-left: auto; margin-right: auto; line-height: 1.85;
-    font-weight: 400;
   }
   .scroll-cue { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 1; color: #fff; opacity: .8; font-family: var(--font-en-body); font-size: .78rem; letter-spacing: .1em; }
 
-  /* ---------- Flowing Sections ---------- */
-  section {
-    position: relative;
-    padding: 120px 0;
-    overflow: hidden;
-  }
-  section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-  }
+  section { position: relative; padding: 120px 0; overflow: hidden; }
+  section::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: -1; }
 
   .clean-head { margin-bottom: 42px; }
-  .kicker {
-    font-family: var(--font-en-display);
-    font-style: italic;
-    color: var(--mocha);
-    font-size: 1rem;
-    margin-bottom: 18px;
-  }
+  .kicker { font-family: var(--font-en-display); font-style: italic; color: var(--mocha); font-size: 1rem; margin-bottom: 18px; }
   h2.sec-title {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
-  line-height: 1.5;
-  letter-spacing: .02em;
-  color: var(--ink);
-  max-width: 850px;
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(1.5rem, 3.2vw, 2.1rem); line-height: 1.5; letter-spacing: .02em;
+    color: var(--ink); max-width: 850px;
   }
+  :root[data-lang="en"] h2.sec-title { font-weight: 500; letter-spacing: -.01em; line-height: 1.3; }
+  .sec-intro { color: var(--ink-soft); font-size: 1.02rem; line-height: 1.95; margin-top: 20px; }
 
-  :root[data-lang="en"] h2.sec-title {
-  font-weight: 500;
-  letter-spacing: -.01em;
-  line-height: 1.3;
-  }
-  .sec-intro {
-    color: var(--ink-soft);
-    font-size: 1.02rem;
-    line-height: 1.95;
-    margin-top: 20px;
-    max-width: 760px;
-  }
+  #belief::before { background: radial-gradient(circle at 85% 20%, var(--lavender-bg), transparent 42%); }
+  .section-belief { background: radial-gradient(circle at 90% 15%, rgba(169,155,212,.12), transparent 35%); }
+  .belief-body { display: flex; flex-direction: column; gap: 22px; margin-top: 38px; }
+  .belief-body p { color: var(--ink-soft); font-size: .96rem; line-height: 2; }
 
-  /* ---------- Belief Section ---------- */
-  #belief::before {
-    background: radial-gradient(circle at 85% 20%, var(--lavender-bg), transparent 42%);
-  }
-  .section-belief {
-    background: radial-gradient(circle at 90% 15%, rgba(169,155,212,.12), transparent 35%);
-  }
-  .belief-body {
-    max-width: 760px;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    margin-top: 38px;
-  }
-  .belief-body p {
-    color: var(--ink-soft);
-    font-size: .96rem;
-    line-height: 2;
-  }
-
-  /* ---------- Approach Section & Venn ---------- */
-  #approach {
-    background: linear-gradient(180deg, #FBF9F7 0%, #F9F6F5 100%);
-  }
+  #approach { background: linear-gradient(180deg, #FBF9F7 0%, #F9F6F5 100%); }
   #approach::before {
     background:
       radial-gradient(circle at 15% 60%, var(--lavender-bg), transparent 38%),
       radial-gradient(circle at 85% 40%, var(--peach-bg), transparent 38%);
   }
-  .section-approach {
-    background:
-      radial-gradient(circle at 10% 50%, rgba(169,155,212,.10), transparent 32%),
-      radial-gradient(circle at 90% 50%, rgba(241,197,163,.12), transparent 32%);
-  }
-
   .venn-container { margin-top: 60px; display: flex; justify-content: center; }
-  .venn-wrap {
-    display: flex;
-    position: relative;
-    width: 100%;
-    max-width: 860px;
-    justify-content: center;
-    isolation: isolate;
-  }
-  /* 重なり部分の微光エフェクト */
+  .venn-wrap { display: flex; position: relative; width: 100%; max-width: 860px; justify-content: center; isolation: isolate; }
   .venn-wrap::after {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    content: ""; position: absolute; width: 180px; height: 180px; border-radius: 50%;
+    left: 50%; top: 50%; transform: translate(-50%, -50%);
     background: radial-gradient(circle, rgba(255,255,255,.30), rgba(255,255,255,0));
-    pointer-events: none;
-    z-index: 3;
+    pointer-events: none; z-index: 3;
   }
-
   .venn-circle {
-    width: 440px;
-    min-height: 440px;
-    border-radius: 50%;
-    padding: 60px 44px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    border: none;
-    backdrop-filter: blur(2px);
-    transition: transform .4s ease, filter .4s ease;
+    width: 440px; min-height: 440px; border-radius: 50%; padding: 60px 44px;
+    display: flex; flex-direction: column; justify-content: center; position: relative;
+    border: none; backdrop-filter: blur(2px);
   }
-  /* 左：ライラックグラデーション */
   .venn-circle.i {
     background: radial-gradient(circle at 35% 30%, rgba(169, 155, 212, .48), rgba(169, 155, 212, .22) 70%, transparent 100%);
-    margin-right: -35px;
-    z-index: 1;
-    text-align: left;
-    padding-right: 92px;
+    margin-right: -35px; z-index: 1; text-align: left; padding-right: 92px;
   }
-  /* 右：ピーチ/ローズグラデーション */
   .venn-circle.e {
     background: radial-gradient(circle at 65% 35%, rgba(241, 197, 163, .50), rgba(223, 164, 192, .24) 70%, transparent 100%);
-    margin-left: -35px;
-    z-index: 2;
-    text-align: left;
-    padding-left: 100px;
-    padding-right: 36px;
+    margin-left: -35px; z-index: 2; text-align: left; padding-left: 100px; padding-right: 36px;
   }
-  .venn-circle .tag {
-    font-family: var(--font-en-display);
-    font-style: italic;
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-  }
+  .venn-circle .tag { font-family: var(--font-en-display); font-style: italic; font-size: 1.3rem; margin-bottom: 8px; }
   .venn-circle.i .tag { color: #5B4D8A; }
   .venn-circle.e .tag { color: var(--mocha); }
-  .venn-circle h3 {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-    line-height: 1.45;
-    color: var(--ink);
-  }
+  .venn-circle h3 { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 12px; line-height: 1.45; color: var(--ink); }
   :root[data-lang="en"] .venn-circle h3 { font-weight: 500; }
-  .venn-circle p {
-    font-size: .88rem;
-    line-height: 1.75;
-    color: var(--ink-soft);
-  }
+  .venn-circle p { font-size: .88rem; line-height: 1.75; color: var(--ink-soft); }
 
-  /* ---------- Works Section (Editorial List) ---------- */
-  #work::before {
-    background: radial-gradient(circle at 50% 80%, var(--pink-bg), transparent 45%);
-  }
+  /* ---------- Works: 3 columns ---------- */
+  #work::before { background: radial-gradient(circle at 50% 80%, var(--pink-bg), transparent 45%); }
   .works-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -284,143 +152,87 @@
     margin-top: 42px;
   }
   .work-card {
-    position: relative;
-    background: rgba(255,255,255,.38);
-    border: none;
-    border-top: 1px solid rgba(80,60,70,.16);
-    border-radius: 0;
-    padding: 34px 12px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+    position: relative; background: rgba(255,255,255,.38); border: none;
+    border-top: 1px solid rgba(80,60,70,.16); border-radius: 0;
+    padding: 30px 10px 36px; display: flex; flex-direction: column; gap: 14px;
     transition: transform .3s ease, background .3s ease;
   }
-  .work-card:hover {
-    transform: translateY(-2px);
-    background: rgba(255,255,255,.6);
-  }
+  .work-card:hover { transform: translateY(-2px); background: rgba(255,255,255,.6); }
   .work-badge {
-    align-self: flex-start;
-    font-family: var(--font-en-body);
-    font-size: .68rem;
-    letter-spacing: .08em;
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-weight: 500;
-    text-transform: uppercase;
+    align-self: flex-start; font-family: var(--font-en-body); font-size: .66rem;
+    letter-spacing: .08em; padding: 4px 10px; border-radius: 999px; font-weight: 500;
+    text-transform: uppercase; line-height: 1.5;
   }
   .work-badge.i { color: #5B4D8A; background: rgba(169, 155, 212, 0.22); }
-  .work-badge.e {
-  color: #B86B54;
-  background: rgba(241, 197, 163, 0.40);
+  .work-badge.e { color: #B86B54; background: rgba(241, 197, 163, 0.40); }
+  .work-card h3 { font-family: var(--font-en-display); font-size: 1.4rem; font-weight: 400; letter-spacing: -.01em; }
+  .work-card p { color: var(--ink-soft); font-size: .92rem; line-height: 1.85; }
+  /* okaeri: full-width card because its copy is longer */
+  .work-card-wide { grid-column: 1 / -1; flex-direction: row; gap: 56px; padding: 36px 12px 42px; }
+  .okaeri-side { flex: 0 0 210px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .okaeri-body { display: flex; flex-direction: column; gap: 16px; flex: 1; }
+  .okaeri-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+  .icon-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-en-body); font-size: .85rem; font-weight: 500;
+    color: var(--mocha); text-decoration: none;
+    padding: 8px 16px; border: 1px solid rgba(139,108,101,.28); border-radius: 999px;
+    transition: color .2s ease, border-color .2s ease, background .2s ease;
   }
-  .work-card h3 {
-    font-family: var(--font-en-display);
-    font-size: 1.4rem;
-    font-weight: 400;
-    letter-spacing: -.01em;
+  .icon-link:hover { color: #6b2638; border-color: #6b2638; background: rgba(255,255,255,.7); }
+  @media (max-width: 860px) {
+    .work-card-wide { flex-direction: column; gap: 22px; }
+    .okaeri-side { flex: none; }
   }
-  .work-card p {
-    color: var(--ink-soft);
-    font-size: .95rem;
-    line-height: 1.85;
+  /* okaeri wordmark (same as the okaeri site) */
+  .work-card h3.work-logo { line-height: 1; margin: 18px 0 4px; }
+  .logo {
+    font-family: "Bangla MN", "Iowan Old Style", Georgia, serif;
+    font-size: 30px; color: #6b2638; letter-spacing: -0.03em; line-height: 1; display: inline-block;
   }
+  .logo .i { position: relative; display: inline-block; }
+  .logo .dot {
+    position: absolute; left: 50%; top: -0.06em; width: 0.42em; height: 0.42em;
+    transform: translate(-50%, -50%); border-radius: 50%;
+    background: radial-gradient(circle, #d9796b 0 28%, #f5c9b3 46%, rgba(245,201,179,0) 72%);
+  }
+  .work-link {
+    margin-top: auto; align-self: flex-start;
+    font-family: var(--font-en-body); font-size: .85rem; font-weight: 500;
+    color: var(--mocha); text-decoration: none;
+    border-bottom: 1px solid rgba(139,108,101,.35); padding-bottom: 2px;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .work-link:hover { color: #B86B54; border-color: #B86B54; }
 
-  /* ---------- Profile Section (Final Statement) ---------- */
   #about {
-    position: relative;
-    padding-top: 140px;
-    padding-bottom: 140px;
-    overflow: hidden;
+    position: relative; padding-top: 140px; padding-bottom: 140px; overflow: hidden;
     background: linear-gradient(145deg, #F8F4F4 0%, #F7F0F0 45%, #F2E7E3 100%);
   }
   #about::after {
-    content: "";
-    position: absolute;
-    width: 520px;
-    height: 520px;
-    right: -180px;
-    bottom: -220px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(223,164,192,.24), rgba(241,197,163,.08), transparent 70%);
+    content: ""; position: absolute; width: 520px; height: 520px; right: -180px; bottom: -220px;
+    border-radius: 50%; background: radial-gradient(circle, rgba(223,164,192,.24), rgba(241,197,163,.08), transparent 70%);
     pointer-events: none;
   }
-  .section-profile {
-    background: linear-gradient(145deg, #F8F4F4, #F2E7E3);
-  }
-  .about-name {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
-  letter-spacing: .03em;
-  color: var(--ink);
-  line-height: 1.4;
-  }
+  .about-name { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.2rem, 2.2vw, 1.45rem); letter-spacing: .03em; color: var(--ink); line-height: 1.4; }
+  :root[data-lang="en"] .about-name { font-weight: 500; }
+  .about-title { font-family: var(--font-en-display); font-style: italic; color: var(--mocha); font-size: 1rem; margin-top: 8px; letter-spacing: .02em; }
+  .about-body { display: flex; flex-direction: column; gap: 22px; margin-top: 38px; }
+  .about-body p { color: var(--ink-soft); font-size: .96rem; line-height: 2; }
 
-  :root[data-lang="en"] .about-name {
-  font-weight: 500;
-  }
-  .about-title {
-    font-family: var(--font-en-display);
-    font-style: italic;
-    color: var(--mocha);
-    font-size: 1rem;
-    margin-top: 8px;
-    letter-spacing: .02em;
-  }
-  .about-body {
-    max-width: 760px;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    margin-top: 38px;
-  }
-  .about-body p {
-    color: var(--ink-soft);
-    font-size: .96rem;
-    line-height: 2;
-  }
+  footer { padding: 55px 28px 65px; background: #F2E7E3; }
+  .footer-inner { max-width: 920px; margin: 0 auto; display: flex; justify-content: center; align-items: center; }
+  .footer-links { display: flex; gap: 34px; }
+  .footer-links a { text-decoration: none; color: rgba(47,42,46,.55); font-family: var(--font-en-body); font-size: .82rem; font-weight: 500; letter-spacing: .04em; transition: color .2s ease; }
+  .footer-links a:hover { color: var(--mocha); }
 
-  /* ---------- Fading Minimal Footer ---------- */
-  footer {
-    padding: 55px 28px 65px;
-    background: #F2E7E3;
-    position: relative;
-    margin-top: 0;
-  }
-  .footer-inner {
-    max-width: 920px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .footer-links {
-    display: flex;
-    gap: 34px;
-  }
-  .footer-links a {
-    text-decoration: none;
-    color: rgba(47,42,46,.55);
-    font-family: var(--font-en-body);
-    font-size: .82rem;
-    font-weight: 500;
-    letter-spacing: .04em;
-    transition: color .2s ease;
-  }
-  .footer-links a:hover {
-    color: var(--mocha);
-  }
-
-  /* ---------- Mobile Optimization ---------- */
-  @media (max-width: 768px) {
+  @media (max-width: 860px) {
     .works-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+  @media (max-width: 768px) {
     .venn-wrap { flex-direction: column; align-items: center; }
     .venn-wrap::after { display: none; }
-    .venn-circle {
-      width: 100%; max-width: 360px; min-height: auto; border-radius: 28px;
-      padding: 36px 28px !important; text-align: left !important; margin: 0 !important;
-    }
+    .venn-circle { width: 100%; max-width: 360px; min-height: auto; border-radius: 28px; padding: 36px 28px !important; text-align: left !important; margin: 0 !important; }
     .venn-circle.i { margin-bottom: 20px !important; }
     section { padding: 80px 0; }
     #about { padding-top: 90px; padding-bottom: 90px; }
@@ -434,7 +246,6 @@
     <button class="lang-btn" data-lang="ja" onclick="setLang('ja')">JP</button>
   </div>
 
-  <!-- Hero -->
   <header class="hero">
     <div class="hero-inner">
       <h1 data-i18n="hero.h1" data-html>Creating a world where<br>everyone can live with ease.</h1>
@@ -444,7 +255,6 @@
   </header>
 
   <main>
-    <!-- My Belief -->
     <section id="belief" class="section-belief">
       <div class="wrap">
         <div class="clean-head">
@@ -459,7 +269,6 @@
       </div>
     </section>
 
-    <!-- How I Approach (Venn Diagram) -->
     <section id="approach" class="section-approach">
       <div class="wrap">
         <div class="clean-head">
@@ -467,7 +276,6 @@
           <h2 class="sec-title" data-i18n="approach.h2" data-html>“Ease of living” is built from both within and without.</h2>
           <p class="sec-intro" data-i18n="approach.intro">An internal dialogue to know, understand, and accept who you are. An external environment to encounter diverse perspectives, broaden horizons, and take on new challenges. Moving between these continuous cycles, we build an authentic inner core and expand our possibilities.</p>
         </div>
-
         <div class="venn-container">
           <div class="venn-wrap">
             <div class="venn-circle i">
@@ -475,7 +283,6 @@
               <h3 data-i18n="inner.h3" data-html>Knowing &amp; Navigating</h3>
               <p data-i18n="inner.p">Understanding the mechanics of mind and emotion to observe our thoughts objectively, deepening self-awareness of what brings us joy, anger, or discomfort, and nurturing self-acceptance to fully embrace who we are.</p>
             </div>
-
             <div class="venn-circle e">
               <div class="tag">External</div>
               <h3 data-i18n="outer.h3" data-html>Horizons &amp; Safe Havens</h3>
@@ -486,7 +293,7 @@
       </div>
     </section>
 
-    <!-- In the Works -->
+    <!-- In the Works (3 cards) -->
     <section id="work">
       <div class="wrap">
         <div class="clean-head">
@@ -495,23 +302,43 @@
         </div>
         <div class="works-grid">
           <div class="work-card">
-            <span class="work-badge i">Internal / In Progress</span>
+            <span class="work-badge i" data-i18n="work.card1.badge">Internal / In Progress</span>
             <h3 data-i18n="work.card1.title">Self-Dialogue Project</h3>
             <p data-i18n="work.card1.desc">Prototyping an introspective product designed to observe emotional and thought triggers and cultivate a healthier relationship with oneself. The development process will be shared alongside foundational research across psychology, neuroscience, and cognitive science.</p>
           </div>
           <div class="work-card">
-            <span class="work-badge e">External / Launching Soon</span>
+            <span class="work-badge e" data-i18n="work.card2.badge">External / Launching Soon</span>
             <h3 data-i18n="work.card2.title">Tansan Times</h3>
             <p data-i18n="work.card2.desc">A research newsletter uncovering the quiet strengths of Japanese and Asian markets through qualitative corporate narratives and structural analysis.</p>
+          </div>
+          <div class="work-card work-card-wide">
+            <div class="okaeri-side">
+              <span class="work-badge e" data-i18n="work.card3.badge">External / Launching Soon</span>
+              <h3 class="work-logo" aria-label="okaeri"><span class="logo" role="img" aria-label="okaeri">okaer<span class="i">ı<span class="dot"></span></span></span></h3>
+            </div>
+            <div class="okaeri-body">
+              <p data-i18n="work.card3.p1">okaeri is a roommate-finding service designed for women.</p>
+              <p data-i18n="work.card3.p2">Home is one of the foundations of our everyday lives. Through my experience living in a shared house in the U.S. and searching for roommates myself, I came to realize how much the person we live with can shape our sense of safety, comfort, and everyday well-being. okaeri was born from these experiences and from my perspective as a woman.</p>
+              <p data-i18n="work.card3.p3">The service creates a safe space where women can find roommates they feel comfortable living with. More than simply finding a place to live, okaeri is an empowerment community where women can feel at home, pursue their goals and dreams, and support one another along the way.</p>
+              <div class="okaeri-links">
+                <a class="icon-link" href="https://okaeri-hello.netlify.app/" target="_blank" rel="noopener" aria-label="okaeri website">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 4 5.7 4 9s-1.4 6.4-4 9c-2.6-2.6-4-5.7-4-9s1.4-6.4 4-9z"/></svg>
+                  <span>Website</span>
+                </a>
+                <a class="icon-link" href="https://www.instagram.com/okaeri.hello/" target="_blank" rel="noopener" aria-label="okaeri on Instagram">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none"/></svg>
+                  <span>Instagram</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Profile -->
     <section id="about" class="section-profile">
       <div class="wrap">
-        <div class="clean-">
+        <div>
           <div class="kicker">Profile</div>
           <h2 class="about-name" data-i18n="about.name">Momoko Furukawa</h2>
           <div class="about-title">Cross-Cultural Brand &amp; Organizational Strategist</div>
@@ -519,19 +346,18 @@
         <div class="about-body">
           <p data-i18n="about.p1">Began my career at IBM Japan as a Technical Sales specialist, focusing on enterprise integration and business process optimization.</p>
           <p data-i18n="about.p2">Driven by a deep curiosity about human thoughts, emotions, and the cultural dynamics of organizations, I expanded into brand strategy. Working closely with executive leadership as a branding consultant, I led diverse initiatives from corporate culture transformation and behavioral guidelines to spatial and brand development.</p>
-          <p data-i18n="about.p3">To bridge the structural logic of systems with the qualitative nuances of human culture, I completed my MBA at Hult International Business School in Boston. Currently based in New York, preparing to step into a new role as an IT consultant.</p>
+          <p data-i18n="about.p3">To bridge the structural logic of systems with the qualitative nuances of human culture, I completed my MBA at Hult International Business School in Boston. Currently based in New York, working as an IT consultant.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Fading Minimal Footer -->
   <footer>
     <div class="footer-inner">
       <div class="footer-links">
-        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#" target="_blank" rel="noopener">Substack</a>
-        <a href="mailto:your-email@example.com">Email</a>
+        <a href="https://www.linkedin.com/in/momoko-furukawa/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://substack.com/@momokofurukawa" target="_blank" rel="noopener">Substack</a>
+        <a href="mailto:momokofurukawa983@gmail.com">Email</a>
       </div>
     </div>
   </footer>
@@ -551,14 +377,21 @@
       "inner.p": "Understanding the mechanics of mind and emotion to observe our thoughts objectively, deepening self-awareness of what brings us joy, anger, or discomfort, and nurturing self-acceptance to fully embrace who we are.",
       "outer.h3": "Horizons &amp; Safe Havens",
       "outer.p": "Encountering new values and expansive horizons with psychological safety, building systemic environments that empower people to dare and explore.",
+      "work.card1.badge": "Internal / In Progress",
       "work.card1.title": "Self-Dialogue Project",
       "work.card1.desc": "Prototyping an introspective product designed to observe emotional and thought triggers and cultivate a healthier relationship with oneself. The development process will be shared alongside foundational research across psychology, neuroscience, and cognitive science.",
+      "work.card2.badge": "External / Launching Soon",
       "work.card2.title": "Tansan Times",
       "work.card2.desc": "A research newsletter uncovering the quiet strengths of Japanese and Asian markets through qualitative corporate narratives and structural analysis.",
+      "work.card3.badge": "External / Launching Soon",
+      "work.card3.p1": "okaeri is a roommate-finding service designed for women.",
+      "work.card3.p2": "Home is one of the foundations of our everyday lives. Through my experience living in a shared house in the U.S. and searching for roommates myself, I came to realize how much the person we live with can shape our sense of safety, comfort, and everyday well-being. okaeri was born from these experiences and from my perspective as a woman.",
+      "work.card3.p3": "The service creates a safe space where women can find roommates they feel comfortable living with. More than simply finding a place to live, okaeri is an empowerment community where women can feel at home, pursue their goals and dreams, and support one another along the way.",
+      "work.card3.link": "Visit okaeri →",
       "about.name": "Momoko Furukawa",
       "about.p1": "Began my career at IBM Japan as a Technical Sales specialist, focusing on enterprise integration and business process optimization.",
       "about.p2": "Driven by a deep curiosity about human thoughts, emotions, and the cultural dynamics of organizations, I expanded into brand strategy. Working closely with executive leadership as a branding consultant, I led diverse initiatives from corporate culture transformation and behavioral guidelines to spatial and brand development.",
-      "about.p3": "To bridge the structural logic of systems with the qualitative nuances of human culture, I completed my MBA at Hult International Business School in Boston. Currently based in New York, preparing to step into a new role as an IT consultant."
+      "about.p3": "To bridge the structural logic of systems with the qualitative nuances of human culture, I completed my MBA at Hult International Business School in Boston. Currently based in New York, working as an IT consultant."
     },
     ja: {
       "hero.h1": "誰もが「生きやすい」と<br>想える社会を創りたい",
@@ -573,14 +406,21 @@
       "inner.p": "脳や心の仕組みを知り、思考や感情を客観視する。自身が何に喜び、何に怒りや違和感を覚えるのか、自己認知を深め、自分を自分で受け入れる自己受容を育む。",
       "outer.h3": "環境からのアプローチ：<br>視野を広げ、安心して挑戦する",
       "outer.p": "多様な価値観に触れて選択肢を知る。背中を押してくれる安心できる居場所やカルチャーを、社会の仕組みとして届けていく。",
+      "work.card1.badge": "Internal / In Progress",
       "work.card1.title": "Self-Dialogue Project",
       "work.card1.desc": "思考や感情のトリガーを客観視し、自分とうまく向き合うための内省プロダクトのプロトタイピング。開発プロセスや背景の心理学・脳科学・神経/認知科学等のリサーチも発信予定。",
+      "work.card2.badge": "External / Launching Soon",
       "work.card2.title": "Tansan Times",
       "work.card2.desc": "日本やアジアの市場・産業の底力を、定性的な企業ストーリーと構造分析から読み解くリサーチニュースレター。",
+      "work.card3.badge": "External / Launching Soon",
+      "work.card3.p1": "okaeriは、女性のためのルームメイト探しサービスです。",
+      "work.card3.p2": "日本では「衣食住」と言われるように、住まいは人が生きていく上で欠かせないもののひとつです。アメリカでのシェアハウス暮らしや、実際にルームメイトを探した経験を通して、誰と暮らすかが、日々の安心や暮らしやすさに大きく関わることを実感しました。そんな自身の経験と、女性としての視点から生まれたのがokaeriです。",
+      "work.card3.p3": "本人確認を行った女性のみが利用でき、安心して自分に合うルームメイトと出会える場をつくる。単に「住む場所」を見つけるのではなく、自分らしく暮らし、自分の目標や夢に集中でき、またお互いに応援し合える女性を応援する、エンパワメント・コミュニティです。",
+      "work.card3.link": "okaeriのサイトを見る →",
       "about.name": "古川 桃子 / ふるかわ ももこ",
       "about.p1": "東京女子大学を卒業後、日本IBMにてテクニカルセールスとしてキャリアをスタートし、エンタープライズ領域における業務統合やプロセスの最適化に従事。",
       "about.p2": "その後、システムという仕組みにとどまらず、人そのものの思考や感情、ブランドやカルチャーがもたらす価値に関心を広げ、ブランディングへ領域を拡張。コンサルタントとして、経営層と対話を重ねながら、組織風土改革や行動指針策定、店舗・ブランド開発に携わる。",
-      "about.p3": "システムの構造と、カルチャーや人の思考・感情。この双方を横断する視点を深めるため、Hult International Business School（Boston）にてMBAを修了。現在はニューヨークにてITコンサルタントとして従事予定。"
+      "about.p3": "システムの構造と、カルチャーや人の思考・感情。この双方を横断する視点を深めるため、Hult International Business School（Boston）にてMBAを修了。現在はニューヨークにてITコンサルタントとして働いています。"
     }
   };
 
